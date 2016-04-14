@@ -1,4 +1,4 @@
-<!doctype html><meta charset="utf-8">
+<meta charset="utf-8">
   <span style=display:inline-block;width:24%;vertical-align:top>
     <img width=100% border="1" src=https://raw.githubusercontent.com/kristopolous/qr-project/master/final/dickinson-summer-shower.png>
     <br/>

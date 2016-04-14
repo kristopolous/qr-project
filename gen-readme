@@ -1,7 +1,7 @@
 #!/bin/bash
 
 [ -e readme.md ] && rm readme.md
-echo '<!doctype html><meta charset="utf-8">' > readme.md
+echo '<meta charset="utf-8">' > readme.md
 cd final
 for i in *png; do
   title=`head -1 ../src/${i/png/txt}`
