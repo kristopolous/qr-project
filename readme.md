@@ -45,7 +45,7 @@
     <img width=100% border="1" src=https://raw.githubusercontent.com/kristopolous/qr-project/master/final/lowell-venus-transiens.png>
     <br/>
     <p style=height:3em;margin-top:0.25em>
-      <b>Venuw Transiens</b> by Amy Lowell
+      <b>Venus Transiens</b> by Amy Lowell
     </p>
   </span>
   <span style=display:inline-block;width:24%;vertical-align:top>
