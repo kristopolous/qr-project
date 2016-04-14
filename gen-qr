@@ -19,11 +19,11 @@ label() {
   for  i in dest/*png; do
     fname=`basename $i`
     if [ -e final/$fname -a -z "$FORCE" ]; then
-      echo "   $fname already generated"
+      echo "   $fname"
     else
       name=`./gen-name`
       echo " * $name = $fname"
-      convert $i -filter box -resize 2048x -gravity south -font DejaVu-Sans-Mono -pointsize 50 -annotate 0x0 "$name" final/$fname
+      convert $i -filter box -resize 2048x -gravity south -font DejaVu-Sans-Mono-Bold -pointsize 50 -annotate 0x0 "$name" final/$fname
     fi
   done
 }
