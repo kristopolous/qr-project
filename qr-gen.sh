@@ -1,4 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 
-for i in src/*txt; do
-
+cd src
+for i in *txt; do
+  cat $i | qrencode -ic --output=../dest/${i/txt/png}
+done
