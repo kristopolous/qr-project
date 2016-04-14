@@ -1,7 +1,11 @@
-#!/bin/sh
+#!/bin/bash
 
 [ -e readme.md ] && rm readme.md
 cd final
 for i in *png; do
-  echo "<img border=1 src=https://raw.githubusercontent.com/kristopolous/qr-project/master/final/$i>" >> ../readme.md
+  echo -en "\n#### " >> ../readme.md
+  head -1 ../src/${i/png/txt} >> ../readme.md
+  echo -en "##### " >> ../readme.md
+  head -2 ../src/${i/png/txt} | tail -1 >> ../readme.md
+  echo "<img border=\"1\" src=https://raw.githubusercontent.com/kristopolous/qr-project/master/final/$i>" >> ../readme.md
 done
