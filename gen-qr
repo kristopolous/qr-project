@@ -5,11 +5,11 @@ qrgen() {
   for i in src/*txt; do
     fname=`basename $i`
     dest=${fname/txt/png}
-    if [ -e dest/$dest ]; then
-      echo " * $dest exists"
+    if [ -e dest/$dest -a -z "$FORCE" ]; then
+      echo "   $dest exists"
     else
       echo " * $dest"
-      cat $i | qrencode -ic --output=dest/$dest
+      cat $i | qrencode -lQ -ic --output=dest/$dest
     fi
   done
 }
@@ -18,12 +18,12 @@ label() {
   echo -e "\nLabeling"
   for  i in dest/*png; do
     fname=`basename $i`
-    if [ ! -e final/$fname ]; then
+    if [ -e final/$fname -a -z "$FORCE" ]; then
+      echo "   $fname already generated"
+    else
       name=`./gen-name`
       echo " * $name = $fname"
       convert $i -filter box -resize 2048x -gravity south -font DejaVu-Sans-Mono -pointsize 60 -annotate 0x0 "$name" final/$fname
-    else
-      echo " * $fname already generated"
     fi
   done
 }
