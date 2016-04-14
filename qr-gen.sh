@@ -9,13 +9,12 @@ qrgen() {
 }
 
 label() {
-  cd dest
-  for i in *png; do
+  for i in dest/*png; do
+    fname=`basename $i`
     name=`./namegen.sh`
     echo $name
-    convert $i -filter box -resize 2048x ../final/$i
+    convert $i -filter box -resize 2048x -gravity south -font DejaVu-Sans-Mono -pointsize 60 -annotate 0x0 "$name" final/$fname
   done
-  cd ..
 }
 
 label
