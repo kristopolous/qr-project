@@ -23,7 +23,7 @@ label() {
     else
       name=`./gen-name`
       echo " * $name = $fname"
-      convert $i -filter box -resize 2048x -gravity south -font DejaVu-Sans-Mono -pointsize 60 -annotate 0x0 "$name" final/$fname
+      convert $i -filter box -resize 2048x -gravity south -font DejaVu-Sans-Mono -pointsize 50 -annotate 0x0 "$name" final/$fname
     fi
   done
 }

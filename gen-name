@@ -1,2 +1,3 @@
 #!/bin/sh
-shuf name/animals | head -127 | pr -s" " -t -m name/colors - | shuf | head -1
+max=`cat name/colors | wc -l`
+shuf name/animals | head -$max | pr -s" " -t -m name/colors - | shuf | head -1
