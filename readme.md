@@ -1,13 +1,12 @@
-<img src=https://raw.githubusercontent.com/kristopolous/qr-project/master/final/dickinson-summer-shower.png>
-<img src=https://raw.githubusercontent.com/kristopolous/qr-project/master/final/elliot-aunt-helen.png>
-<img src=https://raw.githubusercontent.com/kristopolous/qr-project/master/final/frost-stopping-woods.png>
-<img src=https://raw.githubusercontent.com/kristopolous/qr-project/master/final/hd-sea-rose.png>
-<img src=https://raw.githubusercontent.com/kristopolous/qr-project/master/final/hughes-dreams.png>
-<img src=https://raw.githubusercontent.com/kristopolous/qr-project/master/final/lawrence-illicit.png>
-<img src=https://raw.githubusercontent.com/kristopolous/qr-project/master/final/lowell-venus-transiens.png>
-<img src=https://raw.githubusercontent.com/kristopolous/qr-project/master/final/naruda-imovil.png>
-<img src=https://raw.githubusercontent.com/kristopolous/qr-project/master/final/plath-southern-sunrise.png>
-<img src=https://raw.githubusercontent.com/kristopolous/qr-project/master/final/shakespeare-138.png>
-<img src=https://raw.githubusercontent.com/kristopolous/qr-project/master/final/shelley-ozymandias.png>
-<img src=https://raw.githubusercontent.com/kristopolous/qr-project/master/final/test.png>
-<img src=https://raw.githubusercontent.com/kristopolous/qr-project/master/final/whitman-to-foreign-lands.png>
+<img border=1 src=https://raw.githubusercontent.com/kristopolous/qr-project/master/final/dickinson-summer-shower.png>
+<img border=1 src=https://raw.githubusercontent.com/kristopolous/qr-project/master/final/elliot-aunt-helen.png>
+<img border=1 src=https://raw.githubusercontent.com/kristopolous/qr-project/master/final/frost-stopping-woods.png>
+<img border=1 src=https://raw.githubusercontent.com/kristopolous/qr-project/master/final/hd-sea-rose.png>
+<img border=1 src=https://raw.githubusercontent.com/kristopolous/qr-project/master/final/hughes-dreams.png>
+<img border=1 src=https://raw.githubusercontent.com/kristopolous/qr-project/master/final/lawrence-illicit.png>
+<img border=1 src=https://raw.githubusercontent.com/kristopolous/qr-project/master/final/lowell-venus-transiens.png>
+<img border=1 src=https://raw.githubusercontent.com/kristopolous/qr-project/master/final/naruda-imovil.png>
+<img border=1 src=https://raw.githubusercontent.com/kristopolous/qr-project/master/final/plath-southern-sunrise.png>
+<img border=1 src=https://raw.githubusercontent.com/kristopolous/qr-project/master/final/shakespeare-138.png>
+<img border=1 src=https://raw.githubusercontent.com/kristopolous/qr-project/master/final/shelley-ozymandias.png>
+<img border=1 src=https://raw.githubusercontent.com/kristopolous/qr-project/master/final/whitman-to-foreign-lands.png>
