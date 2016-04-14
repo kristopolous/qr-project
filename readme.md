@@ -1,3 +1,4 @@
+<img src=https://raw.githubusercontent.com/kristopolous/qr-project/master/final/dickinson-summer-shower.png>
 <img src=https://raw.githubusercontent.com/kristopolous/qr-project/master/final/elliot-aunt-helen.png>
 <img src=https://raw.githubusercontent.com/kristopolous/qr-project/master/final/frost-stopping-woods.png>
 <img src=https://raw.githubusercontent.com/kristopolous/qr-project/master/final/hd-sea-rose.png>
