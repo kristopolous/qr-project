@@ -5,6 +5,9 @@
 <img src=https://raw.githubusercontent.com/kristopolous/qr-project/master/final/hughes-dreams.png>
 <img src=https://raw.githubusercontent.com/kristopolous/qr-project/master/final/lawrence-illicit.png>
 <img src=https://raw.githubusercontent.com/kristopolous/qr-project/master/final/lowell-venus-transiens.png>
+<img src=https://raw.githubusercontent.com/kristopolous/qr-project/master/final/naruda-imovil.png>
 <img src=https://raw.githubusercontent.com/kristopolous/qr-project/master/final/plath-southern-sunrise.png>
 <img src=https://raw.githubusercontent.com/kristopolous/qr-project/master/final/shakespeare-138.png>
+<img src=https://raw.githubusercontent.com/kristopolous/qr-project/master/final/shelley-ozymandias.png>
+<img src=https://raw.githubusercontent.com/kristopolous/qr-project/master/final/test.png>
 <img src=https://raw.githubusercontent.com/kristopolous/qr-project/master/final/whitman-to-foreign-lands.png>

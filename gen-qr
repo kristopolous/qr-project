@@ -16,15 +16,24 @@ qrgen() {
 
 label() {
   echo -e "\nLabeling"
+  num=0
+  count=`ls dest/*png | wc -l`
+  incr=$(( 360 / $count ))
+  perc=0
   for  i in dest/*png; do
+    (( num ++ ))
     fname=`basename $i`
     if [ -e final/$fname -a -z "$FORCE" ]; then
       echo "   $fname"
     else
       name=`./gen-name`
+      code=`printf "A.%02d" $num`
       echo " * $name = $fname"
-      convert $i -filter box -resize 2048x -gravity south -font DejaVu-Sans-Mono-Bold -pointsize 50 -annotate 0x0 "$name" final/$fname
+      convert $i -filter box -resize 3072x -gravity south -font DejaVu-Sans-Mono-Bold -pointsize 70 -annotate 0x0 "$name" \
+        -gravity southwest -font DejaVu-Sans-Mono-Bold -pointsize 20 -fill "#777" -annotate 0x0 "** $code" \
+        +level-colors "hsl($perc%, 100%, 25%)", final/$fname
     fi
+    perc=$(( $perc + $incr ))
   done
 }
 
