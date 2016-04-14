@@ -31,3 +31,4 @@ label() {
 qrgen
 label
 
+./gen-readme
