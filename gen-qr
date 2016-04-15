@@ -9,7 +9,7 @@ qrgen() {
       echo "   $dest exists"
     else
       echo " * $dest"
-      cat $i | qrencode -d 150 -lH -ic --output=dest/$dest
+      cat $i | qrencode -m 1 -d 150 -lH -ic --output=dest/$dest
     fi
   done
 }
@@ -29,8 +29,8 @@ label() {
       name=`./gen-name`
       code=`printf "A.%02d" $num`
       echo " * $name = $fname"
-      convert $i -filter box -resize 3072x -gravity south -font DejaVu-Sans-Mono-Bold -pointsize 70 -annotate 0x0 "$name" \
-        -gravity southwest -font DejaVu-Sans-Mono-Bold -pointsize 20 -fill "#777" -annotate 0x0 "** $code" \
+      convert $i -filter box -resize 3072x -extent 3072x3272 -gravity south -font DejaVu-Sans-Mono-Bold -pointsize 70 -annotate 0x0 "$name" \
+        -gravity southwest -font DejaVu-Sans-Mono-Bold -pointsize 30 -fill "#777" -annotate 0x0 "** $code" \
         +level-colors "hsl($perc%, 80%, 15%)", final/$fname
     fi
     perc=$(( $perc + $incr ))
