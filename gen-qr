@@ -9,7 +9,7 @@ qrgen() {
       echo "   $dest exists"
     else
       echo " * $dest"
-      cat $i | qrencode -m 1 -d 150 -lH -ic --output=dest/$dest
+      cat $i | qrencode -m 1 -d 300 -lH -i --output=dest/$dest
     fi
   done
 }
@@ -20,18 +20,21 @@ label() {
   count=`ls dest/*png | wc -l`
   incr=$(( 360 / $count ))
   perc=0
-  for  i in dest/*png; do
+
+  for i in dest/*png; do
     (( num ++ ))
-    fname=`basename $i`
+    code=`printf "A.%02d" $num`
+    fname=$code-`basename $i`
     if [ -e final/$fname -a -z "$FORCE" ]; then
       echo "   $fname"
     else
       name=`./gen-name`
-      code=`printf "A.%02d" $num`
       echo " * $name = $fname"
-      convert $i -filter box -resize 3072x -extent 3072x3272 -gravity south -font DejaVu-Sans-Mono-Bold -pointsize 70 -annotate 0x0 "$name" \
-        -gravity southwest -font DejaVu-Sans-Mono-Bold -pointsize 30 -fill "#777" -annotate 0x0 "** $code" \
-        +level-colors "hsl($perc%, 80%, 15%)", final/$fname
+      convert $i -filter box -resize 3072x -extent 3072x3172 -font DejaVu-Sans-Mono-Bold \
+        -gravity south -pointsize 70 -annotate +0+20 "$name" \
+        +level-colors "hsl($perc%, 70%, 15%)", \
+        -gravity southwest -pointsize 45 -fill "#222" -annotate 0x0 "** $code" \
+        -rotate 90 final/$fname
     fi
     perc=$(( $perc + $incr ))
   done
