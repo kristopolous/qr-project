@@ -9,7 +9,7 @@ qrgen() {
       echo "   $dest exists"
     else
       echo " * $dest"
-      cat $i | qrencode -m 1 -d 300 -lH -i --output=dest/$dest
+      cat $i | qrencode -m 3 -d 300 -lH -i --output=dest/$dest
     fi
   done
 }
@@ -25,6 +25,7 @@ label() {
     (( num ++ ))
     code=`printf "A.%02d" $num`
     fname=$code-`basename $i`
+    fname=`basename $i`
     if [ -e final/$fname -a -z "$FORCE" ]; then
       echo "   $fname"
     else
