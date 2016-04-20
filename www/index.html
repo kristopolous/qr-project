@@ -78,12 +78,17 @@
 					<p>Receive a free sheet of stickers to put up in your own community. Their are 6 stickers per sheet. They will be a mix of reproductions from the National Gallery of Art and works by various poets</p>
 
 					<form>
-						<div class="row uniform 50%">
-							<div class="8u 12u(mobilep)">
-								<input type="email" name="email" id="email" placeholder="Email Address" />
-							</div>
-							<div class="4u 12u(mobilep)">
-								<input type="submit" value="Sign Up" class="fit" />
+						<div class="row uniform 50%" style='text-align:center'>
+              <div class="8u 12u(mobilep)" style='display:inline-block;float:none'>
+                
+								<input type="text" name="name" id="name" placeholder="Your Name" />
+								<input type="text" name="address[]" id="address_1" placeholder="Address Line 1" />
+								<input type="text" name="address[]" id="address_2" placeholder="Address Line 2" />
+								<input type="text" name="city" id="city" placeholder="City" />
+								<input type="text" name="state" id="state" placeholder="State" />
+								<input type="text" name="zip" id="zip" placeholder="Postal Code" />
+								<input type="email" name="email" id="email" placeholder="Email Address (for confirmation)" />
+								<input type="submit" value="Get Stickers" class="fit" />
 							</div>
 						</div>
 					</form>
