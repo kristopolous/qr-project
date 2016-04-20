@@ -5,5 +5,4 @@
 <img src=https://raw.githubusercontent.com/kristopolous/qr-project/master/series-b/assets/cariani-a-concert.jpg>
 <img src=https://raw.githubusercontent.com/kristopolous/qr-project/master/series-b/assets/georges-seurat-la-grande-jatte.jpg>
 <img src=https://raw.githubusercontent.com/kristopolous/qr-project/master/series-b/assets/monet-japanese-footbridge.jpg>
-<img src=https://raw.githubusercontent.com/kristopolous/qr-project/master/series-b/assets/readme.md>
 <img src=https://raw.githubusercontent.com/kristopolous/qr-project/master/series-b/assets/van-gogh-olive-orchard.jpg>
