@@ -73,7 +73,7 @@
 					<h2>Stickers by Mail</h2>
 					<p>Receive a free sheet of stickers to put up in your own community. Their are 6 stickers per sheet. They will be a mix of reproductions from the National Gallery of Art and works by various poets</p>
 
-					<form>
+					<form method=post action=address.php>
 						<div class="row uniform 50%" style='text-align:center'>
               <div class="8u 12u(mobilep)" style='display:inline-block;float:none'>
                 
@@ -84,7 +84,7 @@
 								<input type="text" name="state" id="state" placeholder="State" />
 								<input type="text" name="zip" id="zip" placeholder="Postal Code" />
 								<input type="email" name="email" id="email" placeholder="Email Address (for confirmation)" />
-								<input type="submit" value="Get Stickers (under construction)" class="fit" />
+								<input type="submit" value="Get Stickers" class="fit" />
 							</div>
 						</div>
 					</form>
