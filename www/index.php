@@ -30,7 +30,7 @@
 						<header class="major">
 							<h2>Classic poetry and art as stickers
 							<br />
-							to boost someone's day</h2>
+							Free for all. Nothing for sale.</h2>
               <p>A non-commercial project to help build community.<br/>
 							Out of Los Angeles and across the world.</p>
 						</header>
@@ -70,8 +70,8 @@
 			<!-- CTA -->
 				<section id="cta">
 
-					<h2>Stickers by Mail</h2>
-					<p>Receive a free sheet of stickers to put up in your own community. Their are 6 stickers per sheet. They will be a mix of reproductions from the National Gallery of Art and works by various poets</p>
+					<h2>Free Stickers by Mail</h2>
+					<p>Receive a free sheet of stickers to put up in your own community. Their are six stickers per sheet. They will be a mix of reproductions from the National Gallery of Art and works by various poets</p>
 
 					<form method=post action=address.php>
 						<div class="row uniform 50%" style='text-align:center'>
