@@ -20,7 +20,7 @@
 			<!-- Banner -->
 				<section id="banner">
 					<h2>Project Poetry LA</h2>
-					<p>Bringing public art into public space</p>
+					<p>Bring public art into public space</p>
 				</section>
 
 			<!-- Main -->
