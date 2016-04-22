@@ -40,9 +40,9 @@
 					<section class="box special features">
 						<div class="features-row">
 							<section>
-								<span class="icon major fa-qrcode accent2"></span>
-								<h3>QR Codes</h3>
-								<p>Large QR codes that when scanned, reveal classic works of poetry.  Re-imagine what your smart-phone experience could be like and the kind of content you expose yourself to.</p>
+								<span class="icon major fa-download accent5"></span>
+								<h3>Free and Reproducible</h3>
+                <p>Follow the instructions to <a href="gallery.php">print out your own series</a> or send us your mailing address for a set of free complementary stickers. We also encourage people to place sticker sheets in <a href="https://littlefreelibrary.org/">Little Free Libraries</a>.</p>
 							</section>
 							<section>
 								<span class="icon major fa-align-center accent3"></span>
@@ -57,9 +57,9 @@
 								<p>Culled from the National Gallery of Art, these small reproductions help remind how close at hand great works of art are if we only choose to enjoy them. On the internet, or at our many local museums.</p>
 							</section>
 							<section>
-								<span class="icon major fa-download accent5"></span>
-								<h3>Free and Reproducible</h3>
-                <p>Follow the instructions to <a href="gallery.php">print out your own series</a> or send us your mailing address for a set of free complementary stickers. We also encourage people to place sticker sheets in <a href="https://littlefreelibrary.org/">Little Free Libraries</a>.</p>
+								<span class="icon major fa-qrcode accent2"></span>
+								<h3>QR Codes</h3>
+								<p>Large QR codes that when scanned, reveal classic works of poetry.  Re-imagine what your smart-phone experience could be like and the kind of content you expose yourself to.</p>
 							</section>
 						</div>
 					</section>

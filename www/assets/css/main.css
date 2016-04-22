@@ -3779,7 +3779,9 @@ li a {
 }
 li img {
   border: 1px solid #c99;
+  max-width: 80%;
 }
 li a :hover {
   border-color: #faa;
 }
+#navButton { display: none }
