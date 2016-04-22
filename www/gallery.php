@@ -1,3 +1,12 @@
+<?
+  function gallery($list) {
+    $res = [];
+    foreach($list as $pdf) {
+      $res[] = "<li><a href='pdf/$pdf.pdf'><img src='pdf/$pdf.jpg'></a></li>";
+    }
+    return "<ul>" . implode("\n", $res) . "</ul>";
+  }
+?>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -40,20 +49,24 @@
 							<section>
 								<h3>QR Poetry</h3>
 								<p>Classic Poetry in QR codes</p>
+<?= gallery(['qr-1', 'qr-2']); ?>
 							</section>
 							<section>
 								<h3>Art</h3>
 								<p>Fine Art covering entire stickers</p>
+<?= gallery(['art-1']); ?>
 							</section>
 						</div>
 						<div class="features-row">
 							<section>
 								<h3>Text Poetry</h3>
 								<p>Human-readable versions of the QR Project</p>
+                <p>(april 21, 2016: Coming soon)</p>
 							</section>
 							<section>
 								<h3>Engagement</h3>
                 <p>Prompts with large blank space for community engagement</p>
+                <p>(april 21, 2016: Coming soon)</p>
 							</section>
 						</div>
 					</section>

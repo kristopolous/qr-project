@@ -3764,3 +3764,22 @@
 			}
 
 	}
+
+ul {
+  padding: 0;
+  margin: 0;
+ }
+li { 
+  padding: 0;
+  margin: 0;
+  list-style: none
+}
+li a {
+  border-bottom: 0;
+}
+li img {
+  border: 1px solid #c99;
+}
+li a :hover {
+  border-color: #faa;
+}
