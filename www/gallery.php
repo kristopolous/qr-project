@@ -42,18 +42,18 @@
 								<p>Classic Poetry in QR codes</p>
 							</section>
 							<section>
-								<h3>Fine Art</h3>
-								<p>Poetry fit into a 4" x 3.33" form-factor in languages as diverse as Los Angeles. Take some time out of your day to smell the flowers and read the sonnet.</p>
+								<h3>Art</h3>
+								<p>Fine Art covering entire stickers</p>
 							</section>
 						</div>
 						<div class="features-row">
 							<section>
 								<h3>Text Poetry</h3>
-								<p>Culled from the National Gallery of Art, these small reproductions help remind how close at hand great works of art are if we only choose to enjoy them. On the internet, or at our many local museums.</p>
+								<p>Human-readable versions of the QR Project</p>
 							</section>
 							<section>
-								<h3>Free and Reproducible</h3>
-                <p>Follow the instructions to print out your own series or send us your mailing address for a set of free complementary stickers. We also encourage people to place sticker sheets in <a href="https://littlefreelibrary.org/">Little Free Libraries</a>.</p>
+								<h3>Engagement</h3>
+                <p>Prompts with large blank space for community engagement</p>
 							</section>
 						</div>
 					</section>
