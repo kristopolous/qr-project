@@ -54,7 +54,7 @@
 							<section>
 								<h3>Art</h3>
 								<p>Fine Art covering entire stickers</p>
-<?= gallery(array('art-1')); ?>
+<?= gallery(array('art-1', 'art-2')); ?>
 							</section>
 						</div>
 						<div class="features-row">
