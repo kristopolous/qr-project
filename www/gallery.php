@@ -49,12 +49,12 @@
 							<section>
 								<h3>QR Poetry</h3>
 								<p>Classic Poetry in QR codes</p>
-<?= gallery(['qr-1', 'qr-2']); ?>
+<?= gallery(array('qr-1', 'qr-2')); ?>
 							</section>
 							<section>
 								<h3>Art</h3>
 								<p>Fine Art covering entire stickers</p>
-<?= gallery(['art-1']); ?>
+<?= gallery(array('art-1')); ?>
 							</section>
 						</div>
 						<div class="features-row">
