@@ -59,7 +59,7 @@
 							<section>
 								<span class="icon major fa-download accent5"></span>
 								<h3>Free and Reproducible</h3>
-                <p>Follow the instructions to print out your own series or send us your mailing address for a set of free complementary stickers. We also encourage people to place sticker sheets in <a href="https://littlefreelibrary.org/">Little Free Libraries</a>.</p>
+                <p>Follow the instructions to <a href="gallery.php">print out your own series</a> or send us your mailing address for a set of free complementary stickers. We also encourage people to place sticker sheets in <a href="https://littlefreelibrary.org/">Little Free Libraries</a>.</p>
 							</section>
 						</div>
 					</section>
