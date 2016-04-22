@@ -78,7 +78,7 @@
 				<section id="cta">
 
 					<h2>Free Stickers by Mail</h2>
-					<p>Receive a free sheet of stickers to put up in your own community. Their are six stickers per sheet. They will be a mix of reproductions from the National Gallery of Art and works by various poets</p>
+					<p>Receive a free sheet of six stickers to put up in your own community. They will be a mix of <a href="gallery.php">all the different styles</a>.</p>
 
 					<form method=post action=address.php>
 						<div class="row uniform 50%" style='text-align:center'>
