@@ -1,6 +1,6 @@
 <?
   function gallery($list) {
-    $res = [];
+    $res = array();
     foreach($list as $pdf) {
       $res[] = "<li><a href='pdf/$pdf.pdf'><img src='pdf/$pdf.jpg'></a></li>";
     }
