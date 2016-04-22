@@ -28,7 +28,7 @@
 
 					<section class="box special">
 						<header class="major">
-							<h2>Classic poetry and art as stickers
+							<h2>Classic poetry and art as stickers.
 							<br />
 							Free for all. Nothing for sale.</h2>
               <p>A non-commercial project to help build community.<br/>
