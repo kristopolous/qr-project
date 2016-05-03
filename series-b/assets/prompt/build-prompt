@@ -1,0 +1,27 @@
+#!/bin/bash
+
+base=Hello_my_name_is_sticker.png
+font=Nimbus-Sans-L-Bold
+
+labelgen() {
+  num=0
+  count=`cat prompts.txt | wc -l`
+  incr=$(( 360 / $count ))
+  perc=0
+
+  while read -r line
+  do
+    (( num ++ ))
+    fname=$num.png
+    echo $ix $line
+    convert $base -filter box -font $font \
+      -gravity south -pointsize 70 -annotate +0+20 "$line..." \
+      +level-colors "hsl($perc%, 70%, 15%)", $fname
+    perc=$(( $perc + $incr ))
+  done < prompts.txt
+}
+
+[ -e $base ] || convert Hello_my_name_is_sticker.svg -filter -resize 3072x $base
+
+labelgen
+
