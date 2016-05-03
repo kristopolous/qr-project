@@ -15,7 +15,7 @@ labelgen() {
     fname=$num.png
     echo $ix $line
     convert $base -filter box -fill white -font $font \
-      -gravity north -pointsize 120 -annotate +0+20 "$line..." \
+      -gravity north -pointsize 150 -annotate +0+220 "$line..." \
       +level-colors "hsl($perc%, 70%, 15%)", $fname
     perc=$(( $perc + $incr ))
   done < prompts.txt
