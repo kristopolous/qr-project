@@ -16,7 +16,7 @@ labelgen() {
     echo $ix $line
     convert $base -fill white -font $font \
       -gravity north -pointsize 360 -annotate +0+40 "HELLO" \
-      -gravity north -pointsize 200 -annotate +0+450 "$line" \
+      -gravity north -font Nimbus-Sans-L  -pointsize 210 -annotate +0+460 "$line" \
       -fill 'rgba(255,255,255,0.7)' -font Nimbus-Sans-L -gravity southwest -pointsize 35 -annotate +80+60 "projectpoetryla.org" \
       +level-colors "hsl($perc%, 70%, 15%)", output/$fname
     perc=$(( $perc + $incr ))
