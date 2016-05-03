@@ -25,7 +25,7 @@ for fname in glob('*/*.txt'):
     if count > 14:
       columns = 2
       cutoff = round(count / 2)
-      html.write('<span>')
+      html.write('<span class="first">')
 
     newp = True
     line_num = 0
@@ -60,4 +60,5 @@ for fname in glob('*/*.txt'):
 
   png_name = "output{0}png".format(fname[3:-3])
   call(['/usr/bin/wkhtmltoimage', '--width', '3072', html_name, png_name])
+  call(['/usr/bin/convert', png_name, '-trim', png_name])
     
