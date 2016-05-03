@@ -22,8 +22,7 @@ for fname in glob('*/*.txt'):
     html.write("<h2>{0}</h2>".format(author))
 
     columns = 1
-    print (count)
-    if count > 10:
+    if count > 14:
       columns = 2
       cutoff = round(count / 2)
       html.write('<span>')
@@ -35,6 +34,8 @@ for fname in glob('*/*.txt'):
       row = row.strip()
 
       if line_num == cutoff:
+        if not newp:
+         html.write('</p>')
         html.write('</span><span>')
         newp = True
 
@@ -58,5 +59,5 @@ for fname in glob('*/*.txt'):
     html.close()
 
   png_name = "output{0}png".format(fname[3:-3])
-  call(['/usr/bin/wkhtmltoimage', html_name, png_name])
+  call(['/usr/bin/wkhtmltoimage', '--width', '3072', html_name, png_name])
     
