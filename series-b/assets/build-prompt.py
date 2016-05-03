@@ -6,5 +6,5 @@ def make_image(content):
 
 with open('prompts.txt') as f:
   content = f.readlines()
-
-  make_image(content)
+  for prompt in content:
+    make_image(prompt)
