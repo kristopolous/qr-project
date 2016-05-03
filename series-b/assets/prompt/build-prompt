@@ -17,6 +17,7 @@ labelgen() {
     convert $base -fill white -font $font \
       -gravity north -pointsize 360 -annotate +0+40 "HELLO" \
       -gravity north -pointsize 200 -annotate +0+450 "$line" \
+      -fill 'rgba(255,255,255,0.7)' -font Nimbus-Sans-L -gravity southwest -pointsize 35 -annotate +80+60 "projectpoetryla.org" \
       +level-colors "hsl($perc%, 70%, 15%)", $fname
     perc=$(( $perc + $incr ))
   done < prompts.txt
