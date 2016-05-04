@@ -1,4 +1,5 @@
 #!/bin/bash
+. ../tools/common.sh
 
 generate() {
   cd html
@@ -48,5 +49,6 @@ build() {
 
 build prompt png
 build art jpg
+
 generate
 

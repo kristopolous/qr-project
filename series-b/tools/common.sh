@@ -1,5 +1,5 @@
 status() {
-  echo " * $1 : $2"
+  printf " * %02d %s\n" $1 $2
 }
 
 _mkdir() {
