@@ -7,12 +7,17 @@ build() {
   col=0
   for i in ../$what/output/*.png; do
     if [ $row -eq 0 ]; then 
+      if [ $col -eq 0 ]; then
+        fname=$what-$page.html
+        cp header.html $fname
+      fi
       echo "<span id='col$col'>"
     fi
 
     echo "<img src='$i'>"
     (( row ++ ))
     if [ $row -eq 3 ]; then
+      echo "</span>"
       (( col ++ ))
       row=0
     fi
@@ -22,7 +27,7 @@ build() {
       col=0
     fi
 
-    echo "$page $col $row"
+    echo "$fname $col $row"
   done
 }
 
