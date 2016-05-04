@@ -4,11 +4,12 @@ clean() {
   path=$1
   ext=$2
   echo $path $ext
-  git filter-branch --prune-empty --tree-filter 'rm -f $path/*.$ext'
+  git filter-branch -f --prune-empty --tree-filter 'rm -f $path/*.$ext' -- HEAD
 }
 
 git stash
 clean series-b/art/src jpg
 clean www/pdf pdf
 clean www/pdf jpg
+clean series-a/final jpg
 git stash apply
