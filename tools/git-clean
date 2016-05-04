@@ -1,0 +1,10 @@
+#!/bin/bash
+
+clean() {
+  path=$1
+  ext=$2
+  for i in $path/*.$ext; do
+    echo "$i"
+    git filter-branch --tree-filter 'rm -f $i'
+  done
+}
