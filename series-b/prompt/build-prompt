@@ -13,7 +13,7 @@ labelgen() {
   do
     (( num ++ ))
     fname=$num.png
-    echo $ix $line
+    echo $num / $count $line
     convert $base -fill white -font $font \
       -gravity north -pointsize 360 -annotate +0+40 "HELLO" \
       -gravity north -font Nimbus-Sans-L  -pointsize 210 -annotate +0+460 "$line" \
@@ -23,7 +23,9 @@ labelgen() {
   done < prompts.txt
 }
 
-[ -e $base ] || convert Hello_my_name_is_sticker.svg -filter -resize 3072x $base
+if [ ! -e $base ]; then 
+  convert Hello_my_name_is_sticker.svg -filter box -resize 3072x $base
+fi
 
 labelgen
 
