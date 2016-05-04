@@ -12,13 +12,14 @@ generate() {
 }
 
 build() {
+  ext=$2
   what=$1
   page=0
   row=0
   col=0
 
   cd html
-  for i in ../../$what/output/*.{png,jpg}; do
+  for i in ../../$what/output/*.$ext; do
     if [ $row -eq 0 ]; then 
       if [ $col -eq 0 ]; then
         fname=$what-$page.html
@@ -27,7 +28,7 @@ build() {
       echo "<span id='col$col'>" >> $fname
     fi
 
-    echo "<img src='$i'>" >> $fname
+    echo "<div><img src='$i'></div>" >> $fname
     (( row ++ ))
     if [ $row -eq 3 ]; then
       echo "</span>" >> $fname
@@ -45,7 +46,7 @@ build() {
   cd ..
 }
 
-build prompt
-build art
+build prompt png
+build art jpg
 generate
 
