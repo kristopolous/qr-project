@@ -1,11 +1,11 @@
 #!/bin/sh
 
-[ -e cropped ] ||mkdir cropped
+[ -e output ] || mkdir output
 
 middle=/tmp/interim.png
-cd output
+cd src
 for i in *jpg; do
   echo $i
   convert "$i" -rotate 90 $middle
-  ../aspectcrop -a 1020:850 "$i"  ../cropped/"$i"
+  ../aspectcrop -a 1020:850 "$i"  ../output/"$i"
 done
