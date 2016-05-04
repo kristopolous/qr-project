@@ -1,0 +1,13 @@
+@media print {
+  * { font-size: 0 }
+  @page{ size: auto; }
+  body { 
+    margin:0;
+    margin-left:0.16in;
+    height:11in;
+    width:8.5in;
+  }
+  img { width: 4.0in; height: 3.333in}
+  span { margin-top: 0.55in; width: 4in;display:inline-block }
+  #col0 { margin-right:0.35in}
+}
