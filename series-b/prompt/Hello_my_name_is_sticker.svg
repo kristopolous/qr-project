@@ -10,7 +10,7 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="600"
-   height="428.66318"
+   height="500"
    id="svg2"
    version="1.1"
    inkscape:version="0.48.5 r10040"
@@ -24,9 +24,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="228.10525"
-     inkscape:cy="222.33887"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="113.30294"
+     inkscape:cy="526.65203"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -60,17 +60,17 @@
        style="fill:#666666;fill-opacity:1;fill-rule:nonzero;stroke:none"
        id="rect2991"
        width="600"
-       height="428.66318"
+       height="499.83179"
        x="71.060242"
        y="326.03787"
        rx="29.901646"
-       ry="32.257545" />
+       ry="37.613087" />
     <rect
        style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
        id="rect3773"
        width="600"
-       height="232.85713"
+       height="292.75558"
        x="71.060242"
-       y="487.50504" />
+       y="482.07645" />
   </g>
 </svg>
