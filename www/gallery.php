@@ -54,19 +54,19 @@
 							<section>
 								<h3>Art</h3>
 								<p>Fine Art covering entire stickers</p>
-<?= gallery(array('art-1', 'art-2')); ?>
+<?= gallery(array('art-0', 'art-1', 'art-2')); ?>
 							</section>
 						</div>
 						<div class="features-row">
 							<section>
 								<h3>Text Poetry</h3>
 								<p>Human-readable versions of the QR Project</p>
-                <p>(april 21, 2016: Coming soon)</p>
+                <p>(may 4, 2016: Coming soon)</p>
 							</section>
 							<section>
 								<h3>Engagement</h3>
                 <p>Prompts with large blank space for community engagement</p>
-                <p>(april 21, 2016: Coming soon)</p>
+<?= gallery(array('prompt-0', 'prompt-1')); ?>
 							</section>
 						</div>
 					</section>
