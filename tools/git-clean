@@ -3,8 +3,12 @@
 clean() {
   path=$1
   ext=$2
-  git filter-branch --tree-filter 'rm -f $path/*.$ext'
+  echo $path $ext
+  git filter-branch --prune-empty --tree-filter 'rm -f $path/*.$ext'
 }
 
+git stash
+clean series-b/art/src jpg
 clean www/pdf pdf
 clean www/pdf jpg
+git stash apply
