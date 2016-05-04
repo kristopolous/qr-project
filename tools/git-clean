@@ -8,3 +8,6 @@ clean() {
     git filter-branch --tree-filter 'rm -f $i'
   done
 }
+
+clean www/pdf pdf
+clean www/pdf jpg
