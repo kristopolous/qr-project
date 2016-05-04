@@ -39,7 +39,6 @@ build() {
     fi
 
     if [ $col -eq 2 ]; then
-      break
       (( page++ ))
       col=0
     fi
@@ -50,7 +49,7 @@ build() {
 }
 
 build prompt png
-#build art jpg
+build art jpg
 
 generate
-convert output/prompt-0.pdf -resize 1160x prompt-0.png
+#convert output/prompt-0.pdf -resize 1160x prompt-0.png
