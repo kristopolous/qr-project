@@ -10,6 +10,7 @@ generate() {
       --print-media-type -s Letter \
       $i ../output/$pdf
   done
+  cd ..
 }
 
 build() {
@@ -38,6 +39,7 @@ build() {
     fi
 
     if [ $col -eq 2 ]; then
+      break
       (( page++ ))
       col=0
     fi
@@ -48,7 +50,7 @@ build() {
 }
 
 build prompt png
-build art jpg
+#build art jpg
 
 generate
-
+convert output/prompt-0.pdf -resize 1160x prompt-0.png
