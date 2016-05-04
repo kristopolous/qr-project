@@ -2,10 +2,15 @@
 from glob import glob
 from shutil import copyfile
 from subprocess import call
+import os
 import sys
 
+FNULL = open(os.devnull, 'w')
+fcount = 0
+os.mkdir('html')
 for fname in glob('*/*.txt'):
-  print(fname)
+  print(" * %s %s" % (str(fcount),fname))
+  fcount = fcount+1
   html_name = "html{0}html".format(fname[3:-3])
   copyfile("header.html", html_name)
   html = open(html_name, "a")
@@ -59,6 +64,6 @@ for fname in glob('*/*.txt'):
     html.close()
 
   png_name = "output{0}png".format(fname[3:-3])
-  call(['/usr/bin/wkhtmltoimage', '--width', '3072', html_name, png_name])
+  call(['/usr/bin/wkhtmltoimage', '--width', '3072', html_name, png_name], stdout=FNULL, stderr=FNULL)
   call(['/usr/bin/convert', png_name, '-trim', png_name])
     

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+. ../tools/common.sh
+
 base=Hello_my_name_is_sticker.png
 font=Nimbus-Sans-L-Bold
 
@@ -13,19 +15,17 @@ labelgen() {
   do
     (( num ++ ))
     fname=$num.png
-    echo $num / $count $line
+    status $num "$line"
     convert $base -fill white -font $font \
       -gravity north -pointsize 360 -annotate +0+40 "HELLO" \
       -gravity north -font Nimbus-Sans-L  -pointsize 210 -annotate +0+460 "$line" \
-      -fill 'rgba(255,255,255,0.7)' -font Nimbus-Sans-L -gravity southwest -pointsize 35 -annotate +80+60 "projectpoetryla.org" \
       +level-colors "hsl($perc%, 70%, 15%)", output/$fname
     perc=$(( $perc + $incr ))
   done < prompts.txt
 }
 
-if [ ! -e $base ]; then 
-  convert Hello_my_name_is_sticker.svg -filter box -resize 3072x $base
-fi
+_mkdir output
+[ -e $base ] || convert Hello_my_name_is_sticker.svg -filter box -resize 3072x $base
 
 labelgen
 

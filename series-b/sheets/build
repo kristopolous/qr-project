@@ -3,13 +3,19 @@
 
 generate() {
   cd html
+  count=0
   for i in *html; do
     pdf=${i/html/pdf}
+    status $count $pdf
+
     ../wkhtmltopdf \
       -T 0 -B 0 -R 0 -L 0 \
       --print-media-type -s Letter \
-      $i ../output/$pdf
+      $i ../output/$pdf >& /dev/null
+
+    (( count++ ))
   done
+  cd ..
 }
 
 build() {
@@ -47,8 +53,9 @@ build() {
   cd ..
 }
 
+_mkdir html
 build prompt png
 build art jpg
 
 generate
-
+#convert output/prompt-0.pdf -resize 1160x prompt-0.png

@@ -5,6 +5,7 @@ _mkdir output
 
 middle=/tmp/interim.png
 cd src
+./get.sh
 num=0
 for i in *jpg; do
   status $num "$i"
