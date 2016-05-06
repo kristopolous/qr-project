@@ -1,3 +1,27 @@
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Fira Sans Light'), local('FiraSans-Light'), url(fonts/VTBnrK42EiOBncVyQXZ7j4nF5uFdDttMLvmWuJdhhgs.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Fira Sans'), local('FiraSans-Regular'), url(fonts/EjsrzDkQUQCDwsBtLpcVQaCWcynf_cDxXwCLxiixG1c.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Fira Sans Medium'), local('FiraSans-Medium'), url(fonts/zM2u8V3CuPVwAAXFQcDi4InF5uFdDttMLvmWuJdhhgs.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Fira Sans Bold'), local('FiraSans-Bold'), url(fonts/DugPdSljmOTocZOR2CItOonF5uFdDttMLvmWuJdhhgs.ttf) format('truetype');
+}
 .caption, .stickers { font-size: 0 }
 @page{ size: auto; }
 body { 
@@ -13,16 +37,25 @@ body {
   text-align: right;
   margin-right:0.10in;
 }
+
 #top-margin { position:absolute;top:0.20in;left:0;width:100%;background:blue;height:1px;}
 #bottom-margin { position:absolute;top:10.91in;left:0;width:100%;background:purple;height:1px;}
-.caption h2 { margin:0;font-size:11pt; font-weight: 500; color:#333;margin-bottom:-3pt; display: block }
+
+.caption h2 { margin:0;
+  font-size:11pt; 
+  font-weight: 500; 
+  color:#333;margin-bottom:-3pt
+}
 .caption h3 { margin:0; font-weight: 200;font-size:10pt}
 .caption em { font-style: normal; font-weight: 200;color:#555;margin-left:6pt;font-size:10pt}
 .caption div { 
   font-family: Verdana, sans-serif;
   border-left: 1px dotted black;
-  margin-top:0.20in; padding-left:0.10in; padding-right: 0.10in;
-  display: inline-block }
+  margin-top:0.20in; 
+  padding-left:0.10in; padding-right: 0.10in;
+  display: inline-block; 
+}
+
 .caption > :last-child{ 
   border-right: 1px dotted black;
 }
