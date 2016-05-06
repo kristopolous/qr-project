@@ -10,6 +10,7 @@ generate() {
 
     ../wkhtmltopdf \
       -T 0 -B 0 -R 0 -L 0 \
+      -d 300 --minimum-font-size 9 \
       --print-media-type -s Letter \
       $i ../output/$pdf >& /dev/null
 
@@ -54,8 +55,8 @@ build() {
 }
 
 _mkdir html
-build prompt png
-build art jpg
+#build prompt png
+#build art jpg
 
 generate
 #convert output/prompt-0.pdf -resize 1160x prompt-0.png
