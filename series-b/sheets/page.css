@@ -13,18 +13,20 @@ body {
   text-align: right;
   margin-right:0.10in;
 }
-.caption h2 { margin:0;font-size:14.5pt; font-weight: 500; color:#333;margin-bottom:-2pt; display: block }
-.caption h3 { margin:0; font-weight: 200;font-size:12pt}
+#top-margin { position:absolute;top:0.20in;left:0;width:100%;background:blue;height:1px;}
+#bottom-margin { position:absolute;top:10.91in;left:0;width:100%;background:purple;height:1px;}
+.caption h2 { margin:0;font-size:11pt; font-weight: 500; color:#333;margin-bottom:-3pt; display: block }
+.caption h3 { margin:0; font-weight: 200;font-size:10pt}
 .caption em { font-style: normal; font-weight: 200;color:#555;margin-left:6pt;font-size:10pt}
 .caption div { 
   font-family: Verdana, sans-serif;
   border-left: 1px dotted black;
-  margin-top:0.05in; font-size: 12pt; padding-left:0.10in; padding-right: 0.10in;
+  margin-top:0.20in; padding-left:0.10in; padding-right: 0.10in;
   display: inline-block }
 .caption > :last-child{ 
   border-right: 1px dotted black;
 }
-.caption.right div {margin-top:0.01in;}
+.caption.right div {margin-top:0.00in;}
 img { width: 4.0in; }
 .stickers div { width: 4.0in; height: 3.363in }
 span { margin-top: 0.53in; width: 4in;display:inline-block }
