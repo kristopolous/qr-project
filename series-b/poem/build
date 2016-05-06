@@ -7,7 +7,13 @@ import sys
 
 FNULL = open(os.devnull, 'w')
 fcount = 0
-os.mkdir('html')
+
+if not os.path.isdir('html'):
+  os.mkdir('html') 
+
+if not os.path.isdir('output'):
+  os.mkdir('output') 
+
 for fname in glob('*/*.txt'):
   print(" * %s %s" % (str(fcount),fname))
   fcount = fcount+1
