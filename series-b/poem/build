@@ -17,16 +17,27 @@ if not os.path.isdir('output'):
   os.mkdir('output') 
 
 def format(body):
-  return body.replace('--', '&mdash;')
+  ref = body.replace('--', '&mdash;')
+  ref = re.sub('_([^_]*)_', '<em>\\1</em>', ref)
+  ref = re.sub('"([^"]*)"', '&ldquo;\\1&rdquo;', ref)
+  return ref
 
 def poem(title, author, body, columns):
+  # Don't want any silly prayers or religious stuff
+  if " ".join(body).find('God') != -1:
+    return
+  if " ".join(body).find('Lord') != -1:
+    return
+  if " ".join(body).find('divine') != -1:
+    return
+
   height = len(body)
-  html_name = "html/{0}.html".format(author.replace(' ', '_'))
+  html_name = "html/{0}-{1}.html".format(author.replace(' ', '_'), poem_count)
   copyfile("header.html", html_name)
   html = open(html_name, "a")
   body = map(format, body)
 
-  html.write("<h1>{0}</h1>".format(title))
+  html.write("<div id='poem'><h1>{0}</h1><div id=copy>".format(title))
 
   cutoff = False
   if columns == 2:
@@ -62,24 +73,28 @@ def poem(title, author, body, columns):
   if cutoff:
     html.write('</span>')
 
-  html.write("<h2>{0}</h2>".format(author))
+  html.write("</div><h2>{0}</h2></div></body>".format(author))
   html.close()
 
 
 def emit(what, number):
-  median = 0.30
-  buffer = 0.06
+  vert = 0.26
+  hor = 0.42
+  buffer = 0.035
 
   if what['author'] and what['title']:
     # add 4 for the author + title
-    height = what['height'] + 4
+    height = what['height'] + 4.5
     ratio = height / what['width']
 
     column = None
-    if height > 5 and height < 50:
-      if ratio > (median - buffer) and ratio < (median + buffer):
+    if height > 10 and height < 63:
+
+      if (ratio > (hor - buffer) and ratio < (hor + buffer)) or (ratio > (vert - buffer) and ratio < (vert + buffer)):
         column = 1
-      if ratio > (4 * median - buffer) and ratio < (4 * median + buffer):
+
+      if ratio > (4 * hor - buffer) and ratio < (4 * hor + buffer) or ratio > (4 * vert - buffer) and ratio < (4 * vert + buffer):
+        print("2!", ratio, what['author'])
         column = 2
 
       if column != None: 
@@ -169,6 +184,9 @@ for fname in glob('txt/*.utf-8'):
         if len(poem_lines):
           if len(poem_lines[-1]) == 0:
             poem_lines = poem_lines[:-1]
+
+          if(last_poem['title']):
+            longest_line = max(len(title) * 1.50, longest_line)
 
           last_poem['body'] = poem_lines
           last_poem['width'] = longest_line
