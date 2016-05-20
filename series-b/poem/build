@@ -62,12 +62,16 @@ def emit(what, number):
   buffer = 0.06
 
   if what['author'] and what['title']:
-    height = what['height']
-    ratio = what['height'] / what['width']
-    if height > 5 and height < 50 and ((ratio > (median - buffer) and ratio < (median + buffer)) or (ratio > (4 * median - buffer) and ratio < (4 * median + buffer))):
-      print(what['height'] / what['width'], height)
-      print("\n".join(what['body']))
-      print("\n\n--------\n\n")
+    # add 4 for the author + title
+    height = what['height'] + 4
+    ratio = height / what['width']
+
+    if height > 5 and height < 50:
+      if ((ratio > (median - buffer) and ratio < (median + buffer)) or (ratio > (4 * median - buffer) and ratio < (4 * median + buffer))):
+        print("\n\n--------::", what['height'] / what['width'], height, "\n\n")
+        print(what['title'], "\n")
+        print(what['author'], "\n")
+        print("\n".join(what['body']))
 
 """
 def hard_parse():
@@ -127,7 +131,7 @@ def hard_parse():
       blank_count = 0
 """
 
-for fname in glob('txt/*.txt'):
+for fname in glob('txt/*.utf-8'):
   print(" * %s %s" % (str(fcount),fname))
   """
   fcount = fcount+1
