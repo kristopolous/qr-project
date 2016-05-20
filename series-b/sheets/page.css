@@ -48,7 +48,10 @@ body {
 }
 .caption h3 { 
   font-style: italic;
-  margin:0; font-weight: 200;font-size:9.5pt}
+  margin:0; 
+  font-weight: 200;
+  font-size:9.5pt
+}
 
 .caption em { font-style: normal; font-weight: 200;color:#555;margin-left:6pt;font-size:10pt}
 .caption div { 
