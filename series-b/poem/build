@@ -16,22 +16,27 @@ if not os.path.isdir('html'):
 if not os.path.isdir('output'):
   os.mkdir('output') 
 
-def poem(title, author, body):
-  html.write("<h1>{0}</h1>".format(title))
-  html.write("<h2>{0}</h2>".format(author))
+def format(body):
+  return body.replace('--', '&mdash;')
 
-  columns = 1
-  if count > 12:
-    columns = 2
-    cutoff = round(count / 2)
+def poem(title, author, body, columns):
+  height = len(body)
+  html_name = "html/{0}.html".format(author.replace(' ', '_'))
+  copyfile("header.html", html_name)
+  html = open(html_name, "a")
+  body = map(format, body)
+
+  html.write("<h1>{0}</h1>".format(title))
+
+  cutoff = False
+  if columns == 2:
+    cutoff = round(height / 2)
     html.write('<span class="first">')
 
   newp = True
   line_num = 0
 
-  for row in lines[3:]:
-    row = row.strip()
-
+  for row in body:
     if line_num == cutoff:
       if not newp:
        html.write('</p>')
@@ -53,9 +58,13 @@ def poem(title, author, body):
     line_num += 1
 
   html.write("</p>")
+
   if cutoff:
     html.write('</span>')
+
+  html.write("<h2>{0}</h2>".format(author))
   html.close()
+
 
 def emit(what, number):
   median = 0.30
@@ -66,12 +75,15 @@ def emit(what, number):
     height = what['height'] + 4
     ratio = height / what['width']
 
+    column = None
     if height > 5 and height < 50:
-      if ((ratio > (median - buffer) and ratio < (median + buffer)) or (ratio > (4 * median - buffer) and ratio < (4 * median + buffer))):
-        print("\n\n--------::", what['height'] / what['width'], height, "\n\n")
-        print(what['title'], "\n")
-        print(what['author'], "\n")
-        print("\n".join(what['body']))
+      if ratio > (median - buffer) and ratio < (median + buffer):
+        column = 1
+      if ratio > (4 * median - buffer) and ratio < (4 * median + buffer):
+        column = 2
+
+      if column != None: 
+        poem(what['title'], what['author'], what['body'], column)
 
 """
 def hard_parse():
@@ -133,12 +145,7 @@ def hard_parse():
 
 for fname in glob('txt/*.utf-8'):
   print(" * %s %s" % (str(fcount),fname))
-  """
-  fcount = fcount+1
-  html_name = "html{0}html".format(fname[3:-3])
-  copyfile("header.html", html_name)
-  html = open(html_name, "a")
-  """
+
   with open(fname) as f:
     blank_count = 0
     title = None
