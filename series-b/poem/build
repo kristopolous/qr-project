@@ -58,7 +58,16 @@ def poem(title, author, body):
   html.close()
 
 def emit(what, number):
-  print(number, what)
+  median = 0.30
+  buffer = 0.06
+
+  if what['author'] and what['title']:
+    height = what['height']
+    ratio = what['height'] / what['width']
+    if height > 5 and height < 50 and ((ratio > (median - buffer) and ratio < (median + buffer)) or (ratio > (4 * median - buffer) and ratio < (4 * median + buffer))):
+      print(what['height'] / what['width'], height)
+      print("\n".join(what['body']))
+      print("\n\n--------\n\n")
 
 """
 def hard_parse():
@@ -138,9 +147,10 @@ for fname in glob('txt/*.txt'):
     poem_count = 0
 
     for line_raw in f.readlines():
-      line = line_raw.strip() 
+      line = line_raw.rstrip() 
       has_lcase = re.search('[a-z]', line)
       is_new = re.search('\*     ', line)
+      is_poem_line = re.match('  ', line)
 
       if is_new:
         start_parse = True
@@ -173,7 +183,7 @@ for fname in glob('txt/*.txt'):
       if not start_parse:
         continue
 
-      print(has_lcase, blank_count, line)
+      #print(has_lcase, blank_count, line)
 
       if len(line) == 0:
         blank_count += 1
@@ -188,15 +198,15 @@ for fname in glob('txt/*.txt'):
           author = line
           continue
 
-      #print(has_lcase, blank_count, line)
       if has_lcase and blank_count == 2:
         if title and title[-1] == '.':
           title = title[:-1]
         last_poem['title'] = title
-        poem_lines.append(line)
+        if is_poem_line:
+          poem_lines.append(line[2:])
 
-      elif len(poem_lines) > 0:
-        poem_lines.append(line)
+      elif len(poem_lines) > 0 and is_poem_line:
+        poem_lines.append(line[2:])
      
       longest_line = max(longest_line, len(line))
       max_blank = max(max_blank, blank_count)
