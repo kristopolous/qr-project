@@ -61,7 +61,7 @@
 							<section>
 								<h3>Text Poetry</h3>
 								<p>Human-readable versions of the QR Project</p>
-                <p>(may 4, 2016: Coming soon)</p>
+                <p>(may 21, 2016: Coming soon)</p>
 							</section>
 							<section>
 								<h3>Engagement</h3>
