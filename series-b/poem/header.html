@@ -10,11 +10,14 @@
 <script>
 $(document).ready(function(){
   var id = $("#poem");
-  $(document.body).prepend('<p>' + [
-    id.height() / id.width(),
-    4/3.333333,
-    3.333333/4
-  ].join(' | ') + '</p>');
+  // only put this info on the screen if we aren't actually generating crap
+  if(navigator.userAgent.search('wkhtmltoimage') == -1) {
+    $(document.body).prepend('<p>' + [
+      id.height() / id.width(),
+      4/3.333333,
+      3.333333/4
+    ].join(' | ') + '</p>');
+  }
 });
 </script>
 <body>
