@@ -2,7 +2,7 @@
 # vim: tabstop=8 expandtab shiftwidth=2 softtabstop=2
 from glob import glob
 from shutil import copyfile
-from subprocess import call
+from subprocess import call, check_output
 import re
 import os
 import sys
@@ -30,11 +30,29 @@ def format(body):
   ref = re.sub('"([^"]*)"', '&ldquo;\\1&rdquo;', ref)
   return ref
 
+def image_size(path):
+  res = check_output(['/usr/bin/identify', '-format', '%w %h', path])
+  width, height = [int(m) for m in res.decode("utf-8").split(" ")]
+  ratio = width / height
+
+  # This means we have too much width and need height to compensate
+  if ratio > 1.2:
+    new_width = width
+    new_height = width / 1.2
+
+  elif ratio < 1.2:
+    new_height = height
+    new_width =  height * 1.2
+
+  new_ratio = new_width / new_height
+  print(width, height, ratio, "||", new_width, new_height, new_ratio)
+
 def image(html_name, base_name):
   png_name = "output/{0}.png".format(base_name)
   call(['/usr/bin/wkhtmltoimage', '--width', '4096', html_name, png_name], stdout=FNULL, stderr=FNULL)
   call(['/usr/bin/convert', png_name, '-trim', png_name])
   print("... %s" % png_name)
+  image_size(png_name)
 
 def html(title, author, body, columns, rotated):
   # Don't want any silly prayers or religious stuff
