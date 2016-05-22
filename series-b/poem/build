@@ -22,7 +22,12 @@ def format(body):
   ref = re.sub('"([^"]*)"', '&ldquo;\\1&rdquo;', ref)
   return ref
 
-def poem(title, author, body, columns):
+def image(html_name, fname):
+  png_name = "output{0}png".format(fname[3:-3])
+  call(['/usr/bin/wkhtmltoimage', '--width', '3072', html_name, png_name], stdout=FNULL, stderr=FNULL)
+  call(['/usr/bin/convert', png_name, '-trim', png_name])
+
+def html(title, author, body, columns):
   # Don't want any silly prayers or religious stuff
   if " ".join(body).find('God') != -1:
     return
@@ -98,65 +103,7 @@ def emit(what, number):
         column = 2
 
       if column != None: 
-        poem(what['title'], what['author'], what['body'], column)
-
-"""
-def hard_parse():
-    with open(fname) as f:
-      blank_count = 0
-      title = None
-      author = None
-      poem_lines = []
-      last_poem = {}
-      start_parse = False
-      longest_line = 0
-      max_blank = 0
-      line = line_raw.strip() 
-
-      if line == '*       *       *       *       *':
-        start_parse = True
-        continue
-
-      if not start_parse:
-        continue
-
-      if len(line) == 0:
-        blank_count += 1
-        if len(poem_lines) > 0 and blank_count < 2 and max_blank < 3:
-          poem_lines.append(line)
-        max_blank = max(max_blank, blank_count)
-        continue
-      
-      has_lcase = re.search('[a-z]', line)
-      if has_lcase is None:
-        if title is None:
-          title = line
-        elif len(poem_lines) > 0 and author is None:
-          author = line
-          continue
-
-      #print(has_lcase, blank_count, line)
-      if has_lcase and blank_count == 2:
-        last_poem['body'] = poem_lines
-        last_poem['width'] = longest_line
-        last_poem['author'] = author
-        last_poem['height'] = len(poem_lines)
-        emit(last_poem)
-
-        last_poem['title'] = title
-        poem_lines = [line]
-        longest_line = 0
-        max_blank = 0
-        title = None
-        author = None
-
-      elif len(poem_lines) > 0 and max_blank < 3:
-        poem_lines.append(line)
-     
-      longest_line = max(longest_line, len(line))
-      max_blank = max(max_blank, blank_count)
-      blank_count = 0
-"""
+        html(what['title'], what['author'], what['body'], column)
 
 for fname in glob('txt/*.utf-8'):
   print(" * %s %s" % (str(fcount),fname))
@@ -241,18 +188,61 @@ for fname in glob('txt/*.utf-8'):
       max_blank = max(max_blank, blank_count)
       blank_count = 0
 
+"""
+def hard_parse():
+    with open(fname) as f:
+      blank_count = 0
+      title = None
+      author = None
+      poem_lines = []
+      last_poem = {}
+      start_parse = False
+      longest_line = 0
+      max_blank = 0
+      line = line_raw.strip() 
 
+      if line == '*       *       *       *       *':
+        start_parse = True
+        continue
 
-    """
-    title = lines[0].strip()
-    author = lines[1].strip()
+      if not start_parse:
+        continue
 
-    count = len(lines) - 3
-    cutoff = False
-    """
+      if len(line) == 0:
+        blank_count += 1
+        if len(poem_lines) > 0 and blank_count < 2 and max_blank < 3:
+          poem_lines.append(line)
+        max_blank = max(max_blank, blank_count)
+        continue
+      
+      has_lcase = re.search('[a-z]', line)
+      if has_lcase is None:
+        if title is None:
+          title = line
+        elif len(poem_lines) > 0 and author is None:
+          author = line
+          continue
 
+      #print(has_lcase, blank_count, line)
+      if has_lcase and blank_count == 2:
+        last_poem['body'] = poem_lines
+        last_poem['width'] = longest_line
+        last_poem['author'] = author
+        last_poem['height'] = len(poem_lines)
+        emit(last_poem)
 
-  #png_name = "output{0}png".format(fname[3:-3])
-  #call(['/usr/bin/wkhtmltoimage', '--width', '3072', html_name, png_name], stdout=FNULL, stderr=FNULL)
-  #call(['/usr/bin/convert', png_name, '-trim', png_name])
-    
+        last_poem['title'] = title
+        poem_lines = [line]
+        longest_line = 0
+        max_blank = 0
+        title = None
+        author = None
+
+      elif len(poem_lines) > 0 and max_blank < 3:
+        poem_lines.append(line)
+     
+      longest_line = max(longest_line, len(line))
+      max_blank = max(max_blank, blank_count)
+      blank_count = 0
+"""
+
