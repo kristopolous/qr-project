@@ -13,8 +13,16 @@ fcount = 0
 if not os.path.isdir('html'):
   os.mkdir('html') 
 
+for fname in glob('html/*.html'):
+  print(" - {0}".format(fname))
+  os.unlink(fname)
+
 if not os.path.isdir('output'):
   os.mkdir('output') 
+
+for fname in glob('output/*.png'):
+  print(" - {0}".format(fname))
+  os.unlink(fname)
 
 def format(body):
   ref = body.replace('--', '&mdash;')
@@ -22,22 +30,22 @@ def format(body):
   ref = re.sub('"([^"]*)"', '&ldquo;\\1&rdquo;', ref)
   return ref
 
-def image(html_name, fname):
-  png_name = "output{0}png".format(fname[3:-3])
-  call(['/usr/bin/wkhtmltoimage', '--width', '3072', html_name, png_name], stdout=FNULL, stderr=FNULL)
+def image(html_name, base_name):
+  png_name = "output/{0}.png".format(base_name)
+  call(['/usr/bin/wkhtmltoimage', '--width', '4096', html_name, png_name], stdout=FNULL, stderr=FNULL)
   call(['/usr/bin/convert', png_name, '-trim', png_name])
+  print(" + %s" % png_name)
 
 def html(title, author, body, columns):
   # Don't want any silly prayers or religious stuff
-  if " ".join(body).find('God') != -1:
-    return
-  if " ".join(body).find('Lord') != -1:
-    return
-  if " ".join(body).find('divine') != -1:
-    return
+  full = " ".join(body)
+
+  if full.find('God') != -1 or full.find('Lord') != -1 or full.find('divine') != -1:
+    return None, None
 
   height = len(body)
-  html_name = "html/{0}-{1}.html".format(author.replace(' ', '_'), poem_count)
+  base_name = "{0}-{1}".format(author.replace(' ', '_'), poem_count)
+  html_name = "html/{0}.html".format(base_name)
   copyfile("header.html", html_name)
   html = open(html_name, "a")
   body = map(format, body)
@@ -80,6 +88,9 @@ def html(title, author, body, columns):
 
   html.write("</div><h2>{0}</h2></div></body>".format(author))
   html.close()
+  print(" + %s" % html_name)
+
+  return html_name, base_name
 
 
 def emit(what, number):
@@ -99,11 +110,12 @@ def emit(what, number):
         column = 1
 
       if ratio > (4 * hor - buffer) and ratio < (4 * hor + buffer) or ratio > (4 * vert - buffer) and ratio < (4 * vert + buffer):
-        print("2!", ratio, what['author'])
         column = 2
 
       if column != None: 
-        html(what['title'], what['author'], what['body'], column)
+        html_name, base_name = html(what['title'], what['author'], what['body'], column)
+        if not html_name is None:
+          image(html_name, base_name)
 
 for fname in glob('txt/*.utf-8'):
   print(" * %s %s" % (str(fcount),fname))
