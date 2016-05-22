@@ -34,9 +34,9 @@ def image(html_name, base_name):
   png_name = "output/{0}.png".format(base_name)
   call(['/usr/bin/wkhtmltoimage', '--width', '4096', html_name, png_name], stdout=FNULL, stderr=FNULL)
   call(['/usr/bin/convert', png_name, '-trim', png_name])
-  print(" + %s" % png_name)
+  print("... %s" % png_name)
 
-def html(title, author, body, columns):
+def html(title, author, body, columns, rotated):
   # Don't want any silly prayers or religious stuff
   full = " ".join(body)
 
@@ -50,7 +50,13 @@ def html(title, author, body, columns):
   html = open(html_name, "a")
   body = map(format, body)
 
-  html.write("<div id='poem'><h1>{0}</h1><div id=copy>".format(title))
+  if rotated:
+    klass = 'poem rotate'
+
+  else:
+    klass = 'poem'
+
+  html.write("<div class='{0}'><h1>{1}</h1><div id=copy>".format(klass, title))
 
   cutoff = False
   if columns == 2:
@@ -88,10 +94,12 @@ def html(title, author, body, columns):
 
   html.write("</div><h2>{0}</h2></div></body>".format(author))
   html.close()
-  print(" + %s" % html_name)
+  sys.stdout.write(" + %s " % html_name)
 
   return html_name, base_name
 
+def within(test, point, margin):
+  return test >= point - margin and test <= point + margin
 
 def emit(what, number):
   vert = 0.26
@@ -103,19 +111,30 @@ def emit(what, number):
     height = what['height'] + 4.5
     ratio = height / what['width']
 
-    column = None
     if height > 10 and height < 63:
 
-      if (ratio > (hor - buffer) and ratio < (hor + buffer)) or (ratio > (vert - buffer) and ratio < (vert + buffer)):
-        column = 1
+      column = 1
+      rotate = False
+      if within(ratio, hor, buffer): 
+        rotate = True
 
-      if ratio > (4 * hor - buffer) and ratio < (4 * hor + buffer) or ratio > (4 * vert - buffer) and ratio < (4 * vert + buffer):
+      elif within(ratio, vert, buffer):
+        pass
+
+      elif within(ratio, hor * 4, buffer):
+        column = 2
+        rotate = True
+
+      elif within(ratio, vert * 4, buffer):
         column = 2
 
-      if column != None: 
-        html_name, base_name = html(what['title'], what['author'], what['body'], column)
-        if not html_name is None:
-          image(html_name, base_name)
+      else:
+        return  
+
+      html_name, base_name = html(what['title'], what['author'], what['body'], column, rotate)
+
+      if not html_name is None:
+        image(html_name, base_name)
 
 for fname in glob('txt/*.utf-8'):
   print(" * %s %s" % (str(fcount),fname))

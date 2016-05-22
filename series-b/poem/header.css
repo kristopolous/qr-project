@@ -11,5 +11,6 @@ span.first{margin-right: 1em}
 div { display: inline-block}
 #copy { margin-bottom: -.25em}
 .rotate {
+  -webkit-transform: rotate(90deg);
   transform: rotate(90deg);
 }
