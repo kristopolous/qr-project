@@ -33,6 +33,11 @@ def format(body):
 def image_size(path):
   res = check_output(['/usr/bin/identify', '-format', '%w %h', path])
   width, height = [int(m) for m in res.decode("utf-8").split(" ")]
+  # calculate eventual destination height and width
+  # use convert to create this as a background image
+  # and then center the image upon this
+  width += 100
+  height += 100
   ratio = width / height
 
   # This means we have too much width and need height to compensate
