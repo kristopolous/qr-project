@@ -8,6 +8,7 @@ import os
 import sys
 
 FNULL = open(os.devnull, 'w')
+poem_count = 0
 
 if not os.path.isdir('html'):
   os.mkdir('html') 
@@ -165,11 +166,12 @@ def emit(what, number):
       if not html_name is None:
         image(html_name, base_name)
 
-def eserver_parse():
-  for fname in glob('txt/poetry.eserver.org/*html'):
-  for fname in glob('txt/poetry.eserver.org/*txt'):
+#def eserver_parse():
+#  for fname in glob('txt/poetry.eserver.org/*html'):
+#  for fname in glob('txt/poetry.eserver.org/*txt'):
 
 def guten_parse():
+  global poem_count
   for fname in glob('txt/*.utf-8'):
     print(" * %s" % fname)
 
@@ -181,7 +183,6 @@ def guten_parse():
       last_poem = {}
       start_parse = False
       max_blank = 0
-      poem_count = 0
 
       for line_raw in f.readlines():
         line = line_raw.rstrip() 
@@ -244,3 +245,4 @@ def guten_parse():
         max_blank = max(max_blank, blank_count)
         blank_count = 0
 
+guten_parse()
