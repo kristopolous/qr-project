@@ -83,9 +83,9 @@ def html(title, author, body, columns, rotated):
   else:
     klass = 'poem'
 
-  html.write("<div class='{0}'><h1>{1}</h1><div id=copy>".format(klass, title))
+  html.write("<div class='{0}'><h1>{1}</h1><div id='copy'>".format(klass, title))
 
-  cutoff = False
+  cutoff = -1
   if columns == 2:
     cutoff = round(height / 2)
     html.write('<span class="first">')
@@ -96,7 +96,7 @@ def html(title, author, body, columns, rotated):
   for row in body:
     if line_num == cutoff:
       if not newp:
-       html.write('</p>')
+        html.write('</p>')
       html.write('</span><span>')
       newp = True
 
@@ -116,7 +116,7 @@ def html(title, author, body, columns, rotated):
 
   html.write("</p>")
 
-  if cutoff:
+  if cutoff != -1:
     html.write('</span>')
 
   html.write("</div><h2>{0}</h2></div></body>".format(author))
