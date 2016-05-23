@@ -51,7 +51,7 @@
 							<section>
 								<h3>Classic Poetry</h3>
 								<p>Short poetry one sticker at a time.</p>
-<?= gallery(array('poem-0', 'poem-1', 'poem-2', 'poem-3')); ?>
+<?= gallery(array('poem-0', 'poem-1', 'poem-2')); ?>
 							</section>
 							<section>
 								<h3>Art</h3>
