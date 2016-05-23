@@ -10,3 +10,5 @@ wget -nc https://upload.wikimedia.org/wikipedia/en/0/0e/Gaspar_Homar_-_Picnic_in
 wget -nc https://upload.wikimedia.org/wikipedia/en/c/cb/Dario_Villares_Barbosa_-_Women_of_Tangier_-_Google_Art_Project.jpg
 wget -nc https://upload.wikimedia.org/wikipedia/en/6/6e/Pablo_Salinas_-_The_Roman_Festivals_of_the_Colosseum_-_Google_Art_Project.jpg
 [ -e camille-pisarro-orchard-in-bloom.jpg ] || wget -O camille-pisarro-orchard-in-bloom.jpg https://upload.wikimedia.org/wikipedia/commons/6/6d/Camille_Pissarro%2C_Le_verger_%28The_Orchard%29%2C_1872.jpg
+[ -e and_we_are_trying.jpg ] || wget -O and_we_are_trying.jpg -nc https://upload.wikimedia.org/wikipedia/en/c/c4/N._Roerich_-_And_We_are_Trying._From_the_%C2%ABSancta%C2%BB_Series_-_Google_Art_Project.jpg
+[ -e oppy_wood.jpg ] || wget -O oppy_wood.jpg https://upload.wikimedia.org/wikipedia/en/2/2d/Nash%2C_John_%28RA%29_-_Oppy_Wood%2C_1917._Evening_-_Google_Art_Project.jpg
