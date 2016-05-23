@@ -47,8 +47,8 @@
 					<section class="box special features">
 						<div class="features-row">
 							<section>
-								<h3>Text Poetry</h3>
-								<p>Human-readable versions of the QR Project</p>
+								<h3>Classic Poetry</h3>
+								<p>Short poetry one sticker at a time.</p>
 <?= gallery(array('poem-0', 'poem-1', 'poem-2', 'poem-3')); ?>
 							</section>
 							<section>
