@@ -105,7 +105,8 @@
 					<ul class="icons">
 						<li><a href="https://twitter.com/projectpoetryla/" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
 						<li><a href="https://www.facebook.com/ProjectPoetryLA/" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-						<li><a href="https://www.instagram.com/projectpoetryla/" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="https://www.instagram.com/projectpoetryla/" class="icon fa-instagram"><span class="label">instagram</span></a></li>
+						<li><a href="https://github.com/kristopolous/qr-project" class="icon fa-github"><span class="label">the big g-hub</span></a></li>
 					</ul>
 					<ul class="copyright">
 						<li>
