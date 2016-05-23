@@ -61,7 +61,7 @@
 							<section>
 								<h3>Text Poetry</h3>
 								<p>Human-readable versions of the QR Project</p>
-                <p>(may 21, 2016: Coming soon)</p>
+<?= gallery(array('poem-0', 'poem-1', 'poem-2', 'poem-3')); ?>
 							</section>
 							<section>
 								<h3>Engagement</h3>
