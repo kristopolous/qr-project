@@ -57,7 +57,7 @@ def image_size(path):
 
 def image(html_name, base_name):
   png_name = "output/{0}.png".format(base_name)
-  call(['/usr/bin/wkhtmltoimage', '--width', '4096', html_name, png_name], stdout=FNULL, stderr=FNULL)
+  call(['/usr/bin/wkhtmltoimage', '--width', '6144', html_name, png_name], stdout=FNULL, stderr=FNULL)
   call(['/usr/bin/convert', '-strip', png_name, '-trim', png_name])
   sys.stdout.write('... padding ...')
   image_size(png_name)
