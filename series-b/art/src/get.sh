@@ -7,3 +7,6 @@ wget -nc https://upload.wikimedia.org/wikipedia/commons/7/7e/Henri_Rousseau_010.
 [ -e the_concert ] || wget -O the_concert.jpg -nc https://upload.wikimedia.org/wikipedia/en/f/f5/Albert_Andr%C3%A9_-_The_Concert_-_Google_Art_Project.jpg
 wget -nc https://upload.wikimedia.org/wikipedia/en/0/0e/Gaspar_Homar_-_Picnic_in_the_country_-_Google_Art_Project.jpg
 [ -e cariani-a-concert.jpg ] || wget -O cariani-a-concert.jpg -nc https://upload.wikimedia.org/wikipedia/commons/8/82/Cariani_-_A_Concert_-_Google_Art_Project.jpg
+wget -nc https://upload.wikimedia.org/wikipedia/en/c/cb/Dario_Villares_Barbosa_-_Women_of_Tangier_-_Google_Art_Project.jpg
+wget -nc https://upload.wikimedia.org/wikipedia/en/6/6e/Pablo_Salinas_-_The_Roman_Festivals_of_the_Colosseum_-_Google_Art_Project.jpg
+[ -e camille-pisarro-orchard-in-bloom.jpg ] || wget -O camille-pisarro-orchard-in-bloom.jpg https://upload.wikimedia.org/wikipedia/commons/6/6d/Camille_Pissarro%2C_Le_verger_%28The_Orchard%29%2C_1872.jpg
