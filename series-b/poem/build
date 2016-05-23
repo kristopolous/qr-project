@@ -67,11 +67,11 @@ def html(title, author, body, columns, rotated):
   # Don't want any silly prayers or religious stuff
   full = " ".join(body)
 
-  if full.find('God') != -1 or full.find('Lord') != -1 or full.find('divine') != -1:
+  if full.find('God') != -1 or full.find('Lord') != -1 or full.find('divine') != -1 or full.find(' beef') != -1:
     return None, None
 
   height = len(body)
-  base_name = "{0}-{1}".format(author.replace(' ', '_'), poem_count)
+  base_name = str(poem_count)
   html_name = "html/{0}.html".format(base_name)
   copyfile("header.html", html_name)
   html = open(html_name, "a")
