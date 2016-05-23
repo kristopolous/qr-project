@@ -80,7 +80,7 @@
 				<section id="cta">
 
 					<h2>Free Stickers by Mail</h2>
-					<p>Receive a free sheet of six stickers to put up in your own community. They will be a mix of <a href="gallery.php">all the different styles</a>.</p>
+					<p>Receive a free sheet of six stickers to put up in your own community. They will be a mix of all the different styles.</p>
 
 					<form method=post action=address.php>
 						<div class="row uniform 50%" style='text-align:center'>
