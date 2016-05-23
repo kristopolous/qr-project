@@ -1,9 +1,0 @@
-body { font-size:70px;margin: 16px}
-* { font-family: 'Crimson Text', serif; }
-h1, h2 {margin: 0px 0;padding: 0}
-h1, h2 {font-weight: 600 }
-h1 { font-size: 1.35em; }
-h2 { font-weight: 400; font-size: 0.85em;margin-top:-0.25em; margin-bottom: -0.20em; }
-p { margin-left:0px; line-height: 1.25em;white-space: nowrap}
-span { float: left;}
-span.first{margin-right: 1em}
