@@ -9,6 +9,7 @@ p { padding: 0; margin:0.80em 0;margin-left:0px; line-height: 1.25em;white-space
 span { float: left;}
 span.first{margin-right: 1em}
 div { display: inline-block}
+.poem { margin-left: 3em }
 #copy { margin-bottom: -.25em}
 .rotate {
   -webkit-transform: rotate(90deg);
