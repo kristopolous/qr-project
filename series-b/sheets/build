@@ -55,6 +55,7 @@ build() {
 }
 
 _mkdir html
+build poem png
 #build prompt png
 #build art jpg
 

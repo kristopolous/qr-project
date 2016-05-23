@@ -47,9 +47,9 @@
 					<section class="box special features">
 						<div class="features-row">
 							<section>
-								<h3>QR Poetry</h3>
-								<p>Classic Poetry in QR codes</p>
-<?= gallery(array('qr-1', 'qr-2')); ?>
+								<h3>Text Poetry</h3>
+								<p>Human-readable versions of the QR Project</p>
+<?= gallery(array('poem-0', 'poem-1', 'poem-2', 'poem-3')); ?>
 							</section>
 							<section>
 								<h3>Art</h3>
@@ -59,9 +59,9 @@
 						</div>
 						<div class="features-row">
 							<section>
-								<h3>Text Poetry</h3>
-								<p>Human-readable versions of the QR Project</p>
-<?= gallery(array('poem-0', 'poem-1', 'poem-2', 'poem-3')); ?>
+								<h3>QR Poetry</h3>
+								<p>Classic Poetry in QR codes</p>
+<?= gallery(array('qr-1', 'qr-2')); ?>
 							</section>
 							<section>
 								<h3>Engagement</h3>
