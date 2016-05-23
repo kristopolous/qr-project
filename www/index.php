@@ -46,7 +46,7 @@
 							</section>
 							<section>
 								<span class="icon major fa-align-center accent3"></span>
-								<h3>Traditional Text</h3>
+								<h3>Classic Poetry</h3>
 								<p>Poetry fit into a 4" x 3.33" form-factor in languages as diverse as Los Angeles. Take some time out of your day to smell the flowers and read the sonnet.</p>
 							</section>
 						</div>
