@@ -6,7 +6,7 @@ pull() {
 
 convert() {
   cd poetry.eserver.org
-  dos2unix *.txt
+  dos2unix -l *.txt *.html
 }
 
 convert

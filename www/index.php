@@ -1,3 +1,12 @@
+<?
+  function gallery($list) {
+    $res = array();
+    foreach($list as $pdf) {
+      $res[] = "<li><a href='pdf/$pdf.pdf'><img src='pdf/$pdf.jpg'></a></li>";
+    }
+    return "<ul>" . implode("\n", $res) . "</ul>";
+  }
+?>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -31,8 +40,8 @@
 							<h2>Classic poetry and art as stickers.
 							<br />
 							Free for all. Nothing for sale.</h2>
-              <p>A non-commercial project to help build community.<br/>
-							Out of Los Angeles and across the world.</p>
+              <p>Sticker sheets printable at home and free by mail.<br/>
+              Designed for Avery 5164 compatible sheets (3 1/3" x 4").</p>
 						</header>
 						<span class="image featured"><img src="images/middle-spread.jpg" alt="" /></span>
 					</section>
@@ -40,26 +49,26 @@
 					<section class="box special features">
 						<div class="features-row">
 							<section>
-								<span class="icon major fa-download accent5"></span>
-								<h3>Free and Reproducible</h3>
-                <p>You can <a href="gallery.php">print out your own</a> or send us your mailing address below for a set of free stickers.</p> 
+								<h3>Classic Poetry</h3>
+								<p>Short poetry one sticker at a time.</p>
+<?= gallery(array('poem-0', 'poem-1', 'poem-2', 'poem-3')); ?>
 							</section>
 							<section>
-								<span class="icon major fa-align-center accent3"></span>
-								<h3>Classic Poetry</h3>
-								<p>Poetry fit into a 4" x 3.33" form-factor in languages as diverse as Los Angeles. Take some time out of your day to smell the flowers and read the sonnet.</p>
+								<h3>Art</h3>
+								<p>Fine Art covering entire stickers</p>
+<?= gallery(array('art-0', 'art-1', 'art-2')); ?>
 							</section>
 						</div>
 						<div class="features-row">
 							<section>
-								<span class="icon major fa-paint-brush accent4"></span>
-								<h3>Classic Paintings</h3>
-								<p>Culled from the National Gallery of Art, these small reproductions help remind how close at hand great works of art are if we only choose to enjoy them. On the internet, or at our many local museums.</p>
+								<h3>QR Poetry</h3>
+								<p>Classic Poetry in QR codes</p>
+<?= gallery(array('qr-1', 'qr-2')); ?>
 							</section>
 							<section>
-								<span class="icon major fa-qrcode accent2"></span>
-								<h3>QR Codes</h3>
-								<p>Large QR codes that when scanned, reveal classic works of poetry.  Re-imagine what your smart-phone experience could be like and the kind of content you expose yourself to.</p>
+								<h3>Engagement</h3>
+                <p>Prompts with large blank space for community engagement</p>
+<?= gallery(array('prompt-0', 'prompt-1')); ?>
 							</section>
 						</div>
 					</section>
