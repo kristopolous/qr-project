@@ -36,8 +36,6 @@ def image_size(path):
   # calculate eventual destination height and width
   # use convert to create this as a background image
   # and then center the image upon this
-  width += 100
-  height += 100
   ratio = width / height
 
   # This means we have too much width and need height to compensate
@@ -49,15 +47,21 @@ def image_size(path):
     new_height = height
     new_width =  height * 1.2
 
+  margin = new_width / 12
+  new_width += margin
+  new_height += (3.3333333 / 4.00000) * margin
+
   new_ratio = new_width / new_height
-  print(width, height, ratio, "||", new_width, new_height, new_ratio)
+  # print(width, height, ratio, "||", new_width, new_height, new_ratio)
+  call(['/usr/bin/convert', path, '-gravity', 'center', '-background', 'white', '-extent', '{0}x{1}'.format(new_width, new_height), path])
 
 def image(html_name, base_name):
   png_name = "output/{0}.png".format(base_name)
   call(['/usr/bin/wkhtmltoimage', '--width', '4096', html_name, png_name], stdout=FNULL, stderr=FNULL)
-  call(['/usr/bin/convert', png_name, '-trim', png_name])
-  print("... %s" % png_name)
+  call(['/usr/bin/convert', '-strip', png_name, '-trim', png_name])
+  sys.stdout.write('... padding ...')
   image_size(png_name)
+  print(png_name)
 
 def html(title, author, body, columns, rotated):
   # Don't want any silly prayers or religious stuff
