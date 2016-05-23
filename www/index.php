@@ -51,12 +51,12 @@
 							<section>
 								<h3>Classic Poetry</h3>
 								<p>Short poetry one sticker at a time.</p>
-<?= gallery(array('poem-0', 'poem-1', 'poem-2')); ?>
+<?= gallery(array('poem-0', 'poem-1', 'poem-2', 'poem-3')); ?>
 							</section>
 							<section>
 								<h3>Art</h3>
 								<p>Fine Art covering entire stickers</p>
-<?= gallery(array('art-0', 'art-1', 'art-2')); ?>
+<?= gallery(array('art-0', 'art-1', 'art-2', 'art-3')); ?>
 							</section>
 						</div>
 						<div class="features-row">
