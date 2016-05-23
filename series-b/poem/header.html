@@ -1,3 +1,23 @@
+<!doctype html>
+<head>
 <link href='https://fonts.googleapis.com/css?family=Crimson+Text:400,600,700' rel='stylesheet' type='text/css'>
 <link href='../header.css' rel='stylesheet' type='text/css'>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script>
 <meta charset="UTF-8"> 
+</head>
+<script>
+$(document).ready(function(){
+  var id = $("#poem");
+  // only put this info on the screen if we aren't actually generating crap
+  if(navigator.userAgent.search('wkhtmltoimage') == -1) {
+    $(document.body).prepend('<p>' + [
+      id.height() / id.width(),
+      4/3.333333,
+      3.333333/4
+    ].join(' | ') + '</p>');
+  }
+});
+</script>
+<body>

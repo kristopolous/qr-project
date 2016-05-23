@@ -1,0 +1,10 @@
+#!/bin/bash
+. tools/common.sh
+
+for section in art poem prompt sheets; do
+  title "Building $section"
+  cd $section
+  ./build 
+  cd ..
+done
+

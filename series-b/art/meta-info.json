@@ -1,0 +1,64 @@
+[
+  {
+    "author": "Alfred Sisley",
+    "title": "Meadow",
+    "year": "1875",
+    "url": "alfred-sisley-meadow.jpg"
+  },{
+    "author": "Auguste Renoir",
+    "title": "Madame Monet and Her Son",
+		"year": "1874",
+    "url": "auguste-renoir-madame-monet-and-her-son.jpg"
+  },{
+    "author": "Vincent Van Gogh",
+    "title": "Olive Orchard",
+		"year": "1889",
+    "url": "van-gogh-olive-orchard.jpg"
+  },{
+    "author": "Cândido Portinari",
+    "title": "Café",
+		"year": "1935",
+    "url": "cafe-candido-portinari.jpg"
+  },{
+    "author": "Camille Pisarro",
+    "title": "Orchard in Bloom",
+		"year": "1872",
+    "url": "camille-pisarro-orchard-in-bloom.jpg"
+  },{
+    "author": "Giovanni Cariani",
+    "title": "A Concert",
+		"year": "c. 1518-1520",
+    "url": "cariani-a-concert.jpg"
+  },{
+    "author": "Andrew Wyeth",
+    "title": "Christina's World",
+		"year": "1948",
+    "url": "christinas_world.jpg"
+  },{
+    "author": "Carlos Merida",
+    "title": "Dancers of Tlaxcala",
+		"year": "1951",
+    "url": "dancers-of-tlaxcala-1951-carlos-merida.jpg"
+  },{
+    "author": "David Alfaro Siqueiros",
+    "title": "Peasants",
+		"year": "c. 1913",
+    "url": "David_Alfaro_Siqueiros_-_Peasants_-_Google_Art_Project.jpg"
+  },{
+    "author": "Diego Rivera",
+    "title": "The Flower Vendor",
+		"year": "c. 1935",
+    "url": "diego-rivera-the-flower-vendor.jpg"
+  },{
+    "author": "Frida Kahlo",
+    "title": "The Bride Frightened at Seeing Life Opened",
+		"year": "1943",
+    "url": "frida-kahlo.jpg"
+  },{
+    "author": "Georges Seurat",
+    "title": "Sailboat",
+		"year": "1884",
+    "url": "georges-seurat-sailboat.jpg"
+  }
+]
+

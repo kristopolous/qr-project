@@ -1,0 +1,31 @@
+#!/bin/bash
+
+. ../tools/common.sh
+
+base=Hello_my_name_is_sticker.png
+font=Nimbus-Sans-L-Bold
+
+labelgen() {
+  num=0
+  count=`cat prompts.txt | wc -l`
+  incr=$(( 360 / $count ))
+  perc=0
+
+  while read -r line
+  do
+    (( num ++ ))
+    fname=$num.png
+    status $num "$line"
+    convert $base -fill white -font $font \
+      -gravity north -pointsize 360 -annotate +0+40 "HELLO" \
+      -gravity north -font Nimbus-Sans-L  -pointsize 210 -annotate +0+460 "$line" \
+      +level-colors "hsl($perc%, 70%, 15%)", output/$fname
+    perc=$(( $perc + $incr ))
+  done < prompts.txt
+}
+
+_mkdir output
+[ -e $base ] || convert Hello_my_name_is_sticker.svg -filter box -resize 3072x $base
+
+labelgen
+

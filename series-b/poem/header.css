@@ -1,9 +1,17 @@
-body { font-size:70px;margin: 16px}
+body { font-size:80px;margin: 16px}
 * { font-family: 'Crimson Text', serif; }
 h1, h2 {margin: 0px 0;padding: 0}
 h1, h2 {font-weight: 600 }
-h1 { font-size: 1.35em; }
-h2 { font-weight: 400; font-size: 0.85em;margin-top:-0.25em; margin-bottom: -0.20em; }
-p { margin-left:0px; line-height: 1.25em;white-space: nowrap}
+h2 { font-weight: 200 }
+h1 { font-size: 1.15em; margin-bottom: -0.35em }
+h2 { text-align: right; font-weight: 400; font-size: 0.85em;margin-top:-0.45em;margin-bottom:0}
+p { padding: 0; margin:0.80em 0;margin-left:0px; line-height: 1.25em;white-space: nowrap}
 span { float: left;}
 span.first{margin-right: 1em}
+div { display: inline-block}
+.poem { margin-left: 12em }
+#copy { margin-bottom: -.25em}
+.rotate {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}

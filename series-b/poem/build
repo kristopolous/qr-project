@@ -1,0 +1,306 @@
+#!/usr/bin/python3
+# vim: tabstop=8 expandtab shiftwidth=2 softtabstop=2
+from glob import glob
+from shutil import copyfile
+from subprocess import call, check_output
+import re
+import os
+import sys
+
+FNULL = open(os.devnull, 'w')
+fcount = 0
+
+if not os.path.isdir('html'):
+  os.mkdir('html') 
+
+for fname in glob('html/*.html'):
+  print(" - {0}".format(fname))
+  os.unlink(fname)
+
+if not os.path.isdir('output'):
+  os.mkdir('output') 
+
+for fname in glob('output/*.png'):
+  print(" - {0}".format(fname))
+  os.unlink(fname)
+
+def format(body):
+  ref = body.replace('--', '&mdash;')
+  ref = re.sub('_([^_]*)_', '<em>\\1</em>', ref)
+  ref = re.sub('"([^"]*)"', '&ldquo;\\1&rdquo;', ref)
+  return ref
+
+def image_size(path):
+  res = check_output(['/usr/bin/identify', '-format', '%w %h', path])
+  width, height = [int(m) for m in res.decode("utf-8").split(" ")]
+  # calculate eventual destination height and width
+  # use convert to create this as a background image
+  # and then center the image upon this
+  ratio = width / height
+
+  # This means we have too much width and need height to compensate
+  if ratio > 1.2:
+    new_width = width
+    new_height = width / 1.2
+
+  elif ratio < 1.2:
+    new_height = height
+    new_width =  height * 1.2
+
+  margin = new_width / 12
+  new_width += margin
+  new_height += (3.3333333 / 4.00000) * margin
+
+  new_ratio = new_width / new_height
+  # print(width, height, ratio, "||", new_width, new_height, new_ratio)
+  call(['/usr/bin/convert', path, '-gravity', 'center', '-background', 'white', '-extent', '{0}x{1}'.format(new_width, new_height), path])
+
+def image(html_name, base_name):
+  png_name = "output/{0}.png".format(base_name)
+  call(['/usr/bin/wkhtmltoimage', '--width', '6144', html_name, png_name], stdout=FNULL, stderr=FNULL)
+  call(['/usr/bin/convert', '-strip', png_name, '-trim', png_name])
+  sys.stdout.write('... padding ...')
+  image_size(png_name)
+  print(png_name)
+
+def html(title, author, body, columns, rotated):
+  # Don't want any silly prayers or religious stuff
+  full = " ".join(body)
+
+  if full.find('God') != -1 or full.find('Lord') != -1 or full.find('divine') != -1 or full.find(' beef') != -1:
+    return None, None
+
+  height = len(body)
+  base_name = str(poem_count)
+  html_name = "html/{0}.html".format(base_name)
+  copyfile("header.html", html_name)
+  html = open(html_name, "a")
+  body = map(format, body)
+
+  if rotated:
+    klass = 'poem rotate'
+
+  else:
+    klass = 'poem'
+
+  html.write("<div class='{0}'><h1>{1}</h1><div id='copy'>".format(klass, title))
+
+  cutoff = -1
+  if columns == 2:
+    cutoff = round(height / 2)
+    html.write('<span class="first">')
+
+  newp = True
+  line_num = 0
+
+  for row in body:
+    if line_num == cutoff:
+      if not newp:
+        html.write('</p>')
+      html.write('</span><span>')
+      newp = True
+
+    if newp:
+      html.write("<p>"); 
+      newp = False
+    elif len(row) > 0:
+      html.write("<br>")
+
+    if len(row) == 0:
+      html.write("</p>")
+      newp = True
+    else:
+      html.write(row)
+
+    line_num += 1
+
+  html.write("</p>")
+
+  if cutoff != -1:
+    html.write('</span>')
+
+  html.write("</div><h2>{0}</h2></div></body>".format(author))
+  html.close()
+  sys.stdout.write(" + %s " % html_name)
+
+  return html_name, base_name
+
+def within(test, point, margin):
+  return test >= point - margin and test <= point + margin
+
+def emit(what, number):
+  vert = 0.26
+  hor = 0.42
+  buffer = 0.035
+
+  if what['author'] and what['title']:
+    # add 4 for the author + title
+    height = what['height'] + 4.5
+    ratio = height / what['width']
+
+    if height > 10 and height < 63:
+
+      column = 1
+      rotate = False
+      if within(ratio, hor, buffer): 
+        rotate = True
+
+      elif within(ratio, vert, buffer):
+        pass
+
+      elif within(ratio, hor * 4, buffer):
+        column = 2
+        rotate = True
+
+      elif within(ratio, vert * 4, buffer):
+        column = 2
+
+      else:
+        return  
+
+      html_name, base_name = html(what['title'], what['author'], what['body'], column, rotate)
+
+      if not html_name is None:
+        image(html_name, base_name)
+
+for fname in glob('txt/*.utf-8'):
+  print(" * %s %s" % (str(fcount),fname))
+
+  with open(fname) as f:
+    blank_count = 0
+    title = None
+    author = None
+    poem_lines = []
+    last_poem = {}
+    start_parse = False
+    longest_line = 0
+    max_blank = 0
+    poem_count = 0
+
+    for line_raw in f.readlines():
+      line = line_raw.rstrip() 
+      has_lcase = re.search('[a-z]', line)
+      is_new = re.search('\*     ', line)
+      is_poem_line = re.match('  ', line)
+
+      if is_new:
+        start_parse = True
+
+        if len(poem_lines):
+          if len(poem_lines[-1]) == 0:
+            poem_lines = poem_lines[:-1]
+
+          if(last_poem['title']):
+            longest_line = max(len(title) * 1.50, longest_line)
+
+          last_poem['body'] = poem_lines
+          last_poem['width'] = longest_line
+
+          if author and author[-1] == '.':
+            author = author[:-1]
+
+          last_poem['author'] = author
+          last_poem['height'] = len(poem_lines)
+          poem_count += 1
+          emit(last_poem, poem_count)
+
+        poem_lines = []
+        title = None
+        author = None
+
+        longest_line = 0
+        max_blank = 0
+        blank_count = 0
+
+        continue
+
+      if not start_parse:
+        continue
+
+      #print(has_lcase, blank_count, line)
+
+      if len(line) == 0:
+        blank_count += 1
+        if len(poem_lines) > 0 and not author:
+          poem_lines.append(line)
+        continue
+      
+      if has_lcase is None:
+        if title is None:
+          title = line
+        elif len(poem_lines) > 0 and author is None:
+          author = line
+          continue
+
+      if has_lcase and blank_count == 2:
+        if title and title[-1] == '.':
+          title = title[:-1]
+        last_poem['title'] = title
+        if is_poem_line:
+          poem_lines.append(line[2:])
+
+      elif len(poem_lines) > 0 and is_poem_line:
+        poem_lines.append(line[2:])
+     
+      longest_line = max(longest_line, len(line))
+      max_blank = max(max_blank, blank_count)
+      blank_count = 0
+
+"""
+def hard_parse():
+    with open(fname) as f:
+      blank_count = 0
+      title = None
+      author = None
+      poem_lines = []
+      last_poem = {}
+      start_parse = False
+      longest_line = 0
+      max_blank = 0
+      line = line_raw.strip() 
+
+      if line == '*       *       *       *       *':
+        start_parse = True
+        continue
+
+      if not start_parse:
+        continue
+
+      if len(line) == 0:
+        blank_count += 1
+        if len(poem_lines) > 0 and blank_count < 2 and max_blank < 3:
+          poem_lines.append(line)
+        max_blank = max(max_blank, blank_count)
+        continue
+      
+      has_lcase = re.search('[a-z]', line)
+      if has_lcase is None:
+        if title is None:
+          title = line
+        elif len(poem_lines) > 0 and author is None:
+          author = line
+          continue
+
+      #print(has_lcase, blank_count, line)
+      if has_lcase and blank_count == 2:
+        last_poem['body'] = poem_lines
+        last_poem['width'] = longest_line
+        last_poem['author'] = author
+        last_poem['height'] = len(poem_lines)
+        emit(last_poem)
+
+        last_poem['title'] = title
+        poem_lines = [line]
+        longest_line = 0
+        max_blank = 0
+        title = None
+        author = None
+
+      elif len(poem_lines) > 0 and max_blank < 3:
+        poem_lines.append(line)
+     
+      longest_line = max(longest_line, len(line))
+      max_blank = max(max_blank, blank_count)
+      blank_count = 0
+"""
+
