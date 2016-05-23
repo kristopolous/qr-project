@@ -56,9 +56,9 @@
     "url": "frida-kahlo.jpg"
   },{
     "author": "Georges Seurat",
-    "title": "Sailboat",
+    "title": "Une baignade à Asnières",
 		"year": "1884",
-    "url": "georges-seurat-sailboat.jpg"
+    "url": "Baigneurs_a_Asnieres.jpg"
   },{
     "author": "Albert André",
     "title": "The Concert",
@@ -94,6 +94,11 @@
     "title": "Oppy Wood",
     "year": "1918",
     "url": "oppy_wood.jpg"
+  },{
+    "author": "Joaquim Mir",
+    "title": "The New Pond",
+    "year": "c. 1907-1913",
+    "url": "Joaquim_Mir_-_The_New_Pond_-_Google_Art_Project.jpg"
   }
 ]
 

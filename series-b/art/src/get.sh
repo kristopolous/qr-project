@@ -12,3 +12,6 @@ wget -nc https://upload.wikimedia.org/wikipedia/en/6/6e/Pablo_Salinas_-_The_Roma
 [ -e camille-pisarro-orchard-in-bloom.jpg ] || wget -O camille-pisarro-orchard-in-bloom.jpg https://upload.wikimedia.org/wikipedia/commons/6/6d/Camille_Pissarro%2C_Le_verger_%28The_Orchard%29%2C_1872.jpg
 [ -e and_we_are_trying.jpg ] || wget -O and_we_are_trying.jpg -nc https://upload.wikimedia.org/wikipedia/en/c/c4/N._Roerich_-_And_We_are_Trying._From_the_%C2%ABSancta%C2%BB_Series_-_Google_Art_Project.jpg
 [ -e oppy_wood.jpg ] || wget -O oppy_wood.jpg https://upload.wikimedia.org/wikipedia/en/2/2d/Nash%2C_John_%28RA%29_-_Oppy_Wood%2C_1917._Evening_-_Google_Art_Project.jpg
+wget -nc https://upload.wikimedia.org/wikipedia/commons/e/eb/Baigneurs_a_Asnieres.jpg
+wget -nc https://upload.wikimedia.org/wikipedia/en/3/34/Joaquim_Mir_-_The_New_Pond_-_Google_Art_Project.jpg
+[ -e alfred-sisley-meadow.jpg ] || wget -O alfred-sisley-meadow.jpg https://upload.wikimedia.org/wikipedia/commons/2/2e/Meadow%2C_Alfred_Sisley%2C_1875.jpg

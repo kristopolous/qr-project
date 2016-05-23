@@ -55,9 +55,9 @@ build() {
 }
 
 _mkdir html
+build art jpg
 build poem png
 #build prompt png
-#build art jpg
 
 generate
 #convert output/prompt-0.pdf -resize 1160x prompt-0.png
