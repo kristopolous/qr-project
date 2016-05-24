@@ -25,13 +25,18 @@ build() {
   page=0
   row=0
   col=0
+  fname=''
 
   cd html
   for i in ../../$what/output/*.$ext; do
     if [ $row -eq 0 ]; then 
       if [ $col -eq 0 ]; then
+        if [ "$fname" != "" ]; then
+          echo "</div>" >> $fname
+        fi
         fname=$what-$page.html
         cp ../header.html $fname
+        echo "<script>var base='$what';</script>" >> $fname
       fi
       echo "<span id='col$col'>" >> $fname
     fi
@@ -52,11 +57,12 @@ build() {
 
     #echo "$fname $col $row"
   done
+  echo "</div>" >> $fname
   cd ..
 }
 
 build prompt png
-#build art jpg
+build art jpg
 
-generate
+#generate
 convert output/prompt-0.pdf -resize 1160x prompt-0.png
