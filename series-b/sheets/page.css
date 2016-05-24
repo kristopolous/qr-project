@@ -35,7 +35,7 @@ body {
 }
 .caption.right {
   text-align: right;
-  margin-right:1.10in;
+  margin-right:0.80in;
 }
 
 #top-margin { position:absolute;top:0.20in;left:0;width:100%;background:blue;height:1px;}
