@@ -37,6 +37,7 @@ build() {
         fname=$what-$page.html
         cp ../header.html $fname
         echo "<script>var base='$what';</script>" >> $fname
+        echo "<script src=../../$what/meta-info.js></script>" >> $fname
       fi
       echo "<span id='col$col'>" >> $fname
     fi
