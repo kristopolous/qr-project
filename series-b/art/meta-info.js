@@ -1,4 +1,4 @@
-[
+self.captions = [
   {
     "author": "Alfred Sisley",
     "title": "Meadow",
@@ -9,6 +9,11 @@
     "title": "Madame Monet and Her Son",
 		"year": "1874",
     "url": "auguste-renoir-madame-monet-and-her-son.jpg"
+  },{
+    "author": "Auguste Renoir",
+    "title": "Picking Flowers",
+    "year": "1875",
+    "url": "auguste-renoir-picking-flower.jpg"
   },{
     "author": "Vincent Van Gogh",
     "title": "Olive Orchard",
@@ -105,5 +110,4 @@
     "year": "1906",
     "url": "Ethel_Carrick_-_Paris_park_scene_-_Google_Art_Project.jpg"
   }
-]
-
+];
