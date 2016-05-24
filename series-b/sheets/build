@@ -56,7 +56,7 @@ build() {
       col=0
     fi
 
-    echo "$fname $col $row"
+    #echo "$fname $col $row"
   done
   echo "</div>" >> $fname
   cd ..
@@ -65,5 +65,5 @@ build() {
 #build prompt png
 build art jpg
 
-#generate
+generate
 convert output/prompt-0.pdf -resize 1160x prompt-0.png
