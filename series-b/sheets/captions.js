@@ -16,9 +16,12 @@ $(document).ready(function(){
       return this.src.split('/').slice(-1)[0];
     }));
 
-    self.img_top = img_list.slice(0, 3);
-    self.img_bottom = img_list.slice(-3);
-    $(".stickers").before( "<div class='caption'>" + caption(img_top) + "</div>" );
-    $(".stickers").after( "<div class='caption'>" + caption(img_bottom) + "</div>" );
+    var 
+      img_top = img_list.slice(0, 3),
+      img_bottom = img_list.slice(-3);
+
+    $(".stickers")
+      .before( "<div class='caption'>" + caption(img_top) + "</div>" )
+      .after( "<div class='caption right'>" + caption(img_bottom) + "</div>" );
   }
 });
