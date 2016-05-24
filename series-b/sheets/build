@@ -14,6 +14,12 @@ generate() {
       --print-media-type -s Letter \
       $i ../output/$pdf >& /dev/null
 
+    pgnum=`pdfinfo ../output/$pdf | grep Pages | awk ' { print $2 } '`
+    if [ $pgnum -ne '1' ]; then
+      echo "Woops, page count is $pgnum";
+      exit
+    fi
+
     (( count++ ))
   done
   cd ..
@@ -28,7 +34,6 @@ build() {
   fname=''
 
   cd html
-  ls ../../$what/output/*.$ext
   for i in ../../$what/output/*.$ext; do
     if [ $row -eq 0 ]; then 
       if [ $col -eq 0 ]; then
