@@ -16,4 +16,3 @@ wget -nc https://upload.wikimedia.org/wikipedia/commons/e/eb/Baigneurs_a_Asniere
 wget -nc https://upload.wikimedia.org/wikipedia/en/3/34/Joaquim_Mir_-_The_New_Pond_-_Google_Art_Project.jpg
 [ -e alfred-sisley-meadow.jpg ] || wget -O alfred-sisley-meadow.jpg https://upload.wikimedia.org/wikipedia/commons/2/2e/Meadow%2C_Alfred_Sisley%2C_1875.jpg
 wget -nc https://upload.wikimedia.org/wikipedia/en/d/d3/Ethel_Carrick_-_Paris_park_scene_-_Google_Art_Project.jpg
-wget -nc https://upload.wikimedia.org/wikipedia/commons/7/7e/Henri_Rousseau_010.jpg
