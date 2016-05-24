@@ -5,6 +5,11 @@ self.captions = [
     "year": "1875",
     "url": "alfred-sisley-meadow.jpg"
   },{
+    "author": "Armando Morales",
+    "title": "Selva Tropical",
+    "year": "1989",
+    "url": "Selva-tropical-by-Armando-Morales-1989.jpg"
+  },{
     "author": "Auguste Renoir",
     "title": "Madame Monet and Her Son",
 		"year": "1874",
@@ -30,10 +35,20 @@ self.captions = [
 		"year": "1872",
     "url": "camille-pisarro-orchard-in-bloom.jpg"
   },{
+    "author": "Claude Monet",
+    "title": "The Japanese Footbridge",
+    "year": "1899",
+    "url": "monet-japanese-footbridge.jpg"
+  },{
     "author": "Giovanni Cariani",
     "title": "A Concert",
 		"year": "c. 1518-1520",
     "url": "cariani-a-concert.jpg"
+  },{
+    "author": "Henri Rousseau",
+    "title": "The Sleeping Gypsy",
+		"year": "1897",
+    "url": "Henri_Rousseau_010.jpg",
   },{
     "author": "Andrew Wyeth",
     "title": "Christina's World",
@@ -104,6 +119,11 @@ self.captions = [
     "title": "The New Pond",
     "year": "c. 1907-1913",
     "url": "Joaquim_Mir_-_The_New_Pond_-_Google_Art_Project.jpg"
+  },{
+    "author": "Roberto Matta",
+    "title": "Explosant fixe",
+    "year": "1974",
+    "url": "roberto-matta.jpg"
   },{
     "author": "Ethel Carrick",
     "title": "Paris Park Scene",
