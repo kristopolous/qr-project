@@ -70,7 +70,8 @@ build() {
 
 [[ -d output ]] || mkdir output
 [[ -d html ]] || mkdir html
-#build prompt png
+build poem png
+build prompt png
 build art jpg
 
 generate
