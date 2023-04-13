@@ -1,8 +1,8 @@
 #!/bin/bash
 . tools/common.sh
 
-#for section in art poem prompt sheets; do
-for section in poem; do
+for section in art poem prompt sheets; do
+#for section in poem; do
   title "Building $section"
   cd $section
   ./build 

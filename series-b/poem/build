@@ -6,6 +6,7 @@ from subprocess import call, check_output
 import re
 import os
 import sys
+import pdb
 
 FNULL = open(os.devnull, 'w')
 poem_count = 0
@@ -57,8 +58,11 @@ def image_size(path):
 
 def image(html_name, base_name):
   png_name = "output/{0}.png".format(base_name)
-  call(['/usr/bin/wkhtmltoimage', '--width', '6144', html_name, png_name], stdout=FNULL, stderr=FNULL)
+  call(['/usr/local/bin/wkhtmltoimage', '--width', '6144', html_name, png_name], stdout=FNULL, stderr=sys.stdout)
+  print(' '.join(['/usr/bin/wkhtmltoimage', '--width', '6144', html_name, png_name]))
+  print(png_name)
   call(['/usr/bin/convert', '-strip', png_name, '-trim', png_name])
+
   sys.stdout.write('... padding ...')
   image_size(png_name)
   print(png_name)
@@ -164,7 +168,7 @@ def emit(what, number):
       html_name, base_name = html(what['title'], what['author'], what['body'], column, rotate)
 
       if not html_name is None:
-        image(html_name, base_name)
+        image('http://0.0.0.0:8000/{}'.format(html_name), base_name)
 
 #def eserver_parse():
 #  for fname in glob('txt/poetry.eserver.org/*html'):
