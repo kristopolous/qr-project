@@ -3,7 +3,7 @@
 . ../tools/common.sh
 
 base=Hello_my_name_is_sticker.png
-font=Nimbus-Sans-L-Bold
+font="NimbusSans-Bold"
 
 labelgen() {
   num=0
@@ -18,7 +18,7 @@ labelgen() {
     status $num "$line"
     convert $base -fill white -font $font \
       -gravity north -pointsize 360 -annotate +0+40 "HELLO" \
-      -gravity north -font Nimbus-Sans-L  -pointsize 210 -annotate +0+460 "$line" \
+      -gravity north -font "NimbusSans-Regular" -pointsize 210 -annotate +0+460 "$line" \
       +level-colors "hsl($perc%, 70%, 15%)", output/$fname
     perc=$(( $perc + $incr ))
   done < prompts.txt
