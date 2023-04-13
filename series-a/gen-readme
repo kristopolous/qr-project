@@ -1,0 +1,19 @@
+#!/bin/bash
+
+[ -e readme.md ] && rm readme.md
+echo '<meta charset="utf-8">' > readme.md
+cd final
+for i in *png; do
+  title=`head -1 ../src/${i/png/txt}`
+  author=`head -2 ../src/${i/png/txt} | tail -1`
+
+  cat >> ../readme.md << ENDL
+  <span style=display:inline-block;width:24%;vertical-align:top>
+    <img width=100% border="1" src=https://raw.githubusercontent.com/kristopolous/qr-project/master/final/$i>
+    <br/>
+    <p style=height:3em;margin-top:0.25em>
+      <b>$title</b> by $author
+    </p>
+  </span>
+ENDL
+done
