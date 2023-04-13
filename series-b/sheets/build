@@ -12,7 +12,7 @@ generate() {
       -T 0 -B 0 -R 0 -L 0 \
       -d 300 --minimum-font-size 9 \
       --print-media-type -s Letter \
-      http://localhost:8000/$i ../output/$pdf >& /dev/null
+      http://localhost:8000/sheets/html/$i ../output/$pdf >& /dev/null
 
     pgnum=`pdfinfo ../output/$pdf | grep Pages | awk ' { print $2 } '`
     if [ $pgnum -ne '1' ]; then
@@ -75,3 +75,4 @@ build art jpg
 
 generate
 convert output/prompt-0.pdf -resize 1160x prompt-0.png
+echo "if that failed make sure you have python3 -mhttp.server running at the qr-project/series-b level"

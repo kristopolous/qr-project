@@ -1,1 +1,0 @@
-install Nimbus-Sans-L
